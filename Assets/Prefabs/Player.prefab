@@ -113,15 +113,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2ab6427aa542d499a3d8a8ee29bb34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactRange: 0
   speed: 10
   turnSpeed: {x: 500, y: 300}
   bullet: {fileID: 825033607283945470, guid: e329f47e5dc24c943bbe40247354c058, type: 3}
   head: {fileID: 8587094513315544708}
   bulletSpawnPoint: {fileID: 8587094514598146232}
+  weaponMelee: {fileID: 0}
+  weaponRange: {fileID: 0}
   bulletSpeed: 50
   bulletLifeTime: 5
   bulletCooldown: 0.05
   maxAmmo: 20
+  FOVChangeSpeedUp: 300
+  FOVChangeSpeedDown: 100
+  cameraBopAdjustSpeed: 10
+  cameraBopSpeed: 10
+  cameraBopLength: 0.1
+  cameraBopHeight: 0.03
 --- !u!54 &8587094512987529739
 Rigidbody:
   m_ObjectHideFlags: 0

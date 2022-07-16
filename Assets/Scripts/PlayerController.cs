@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletSpawnPoint;
 
     public GameObject weaponMelee, weaponRange;
+    public float health = 100;
 
 
 
@@ -24,6 +25,14 @@ public class PlayerController : MonoBehaviour
     public int maxAmmo;
     private float bulletCooldownTimer;
     private int currentAmmo;
+    private float targetFOV;
+    public float FOVChangeSpeedUp, FOVChangeSpeedDown;
+
+    public float cameraBopAdjustSpeed;
+    public float cameraBopSpeed;
+    public float cameraBopLength;
+    public float cameraBopHeight;
+    private Vector3 cameraBopTarget;
 
     private bool skipFirstFrame = true;
 
@@ -91,6 +100,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(health);
+
         if (skipFirstFrame)
         {
             skipFirstFrame = false;
@@ -106,31 +117,74 @@ public class PlayerController : MonoBehaviour
 
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
+        if (input.magnitude > 0)
+        {
+            if (targetFOV != 60 + speed)
+            {
+                targetFOV = 60 + speed;
+            }
+
+            float cameraX = Mathf.PingPong(Time.timeSinceLevelLoad * cameraBopSpeed, 4f) - 2f;
+
+            cameraBopTarget = new Vector3(cameraX * cameraBopLength, Mathf.Sqrt(4f - (cameraX * cameraX)) * cameraBopHeight, 0f);
+        }
+        else
+        {
+            if (targetFOV != 60)
+            {
+                targetFOV = 60;   
+            }
+
+            cameraBopTarget = Vector3.zero;
+        }
+
+        if (Camera.main.transform.localPosition != cameraBopTarget)
+        {
+            Camera.main.transform.localPosition = Vector3.MoveTowards(Camera.main.transform.localPosition, cameraBopTarget, cameraBopAdjustSpeed * Time.deltaTime);
+        }
+
+        if (Camera.main.fieldOfView < targetFOV)
+        {
+            Camera.main.fieldOfView += FOVChangeSpeedUp * Time.deltaTime;
+            if (Camera.main.fieldOfView > targetFOV)
+            {
+                Camera.main.fieldOfView = targetFOV;
+            }
+        }
+        else if (Camera.main.fieldOfView > targetFOV)
+        {
+            Camera.main.fieldOfView -= FOVChangeSpeedDown * Time.deltaTime;
+            if (Camera.main.fieldOfView < targetFOV)
+            {
+                Camera.main.fieldOfView = targetFOV;
+            }
+        }
+
         Vector3 movement = (input.x * transform.right + input.y * transform.forward);
 
         rb.velocity = new Vector3(movement.x * speed, rb.velocity.y, movement.z * speed);
 
-        if (bulletCooldownTimer <= 0)
-        {
-            if (Input.GetMouseButton(0) && currentAmmo > 0)
-            {
-                bulletCooldownTimer = bulletCooldown;
-                currentAmmo--;
-
-                Vector3 direction = bulletSpawnPoint.transform.position - head.transform.position;
-
-                GameObject bulletClone = Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
-
-                bulletClone.transform.forward = direction;
-
-                bulletClone.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.transform.forward * bulletSpeed;
-                Destroy(bulletClone, bulletLifeTime);
-            }
-        }
-        else
-        {
-            bulletCooldownTimer -= Time.deltaTime;
-        }
+        //if (bulletCooldownTimer <= 0)
+        //{
+        //    if (Input.GetMouseButton(0) && currentAmmo > 0)
+        //    {
+        //        bulletCooldownTimer = bulletCooldown;
+        //        currentAmmo--;
+        //
+        //        Vector3 direction = bulletSpawnPoint.transform.position - head.transform.position;
+        //
+        //        GameObject bulletClone = Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
+        //
+        //        bulletClone.transform.forward = direction;
+        //
+        //        bulletClone.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.transform.forward * bulletSpeed;
+        //        Destroy(bulletClone, bulletLifeTime);
+        //    }
+        //}
+        //else
+        //{
+        //    bulletCooldownTimer -= Time.deltaTime;
+        //}
 
         if (Input.GetKeyDown(KeyCode.R))
         {
