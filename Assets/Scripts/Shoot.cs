@@ -52,8 +52,8 @@ public class Shoot : MonoBehaviour
         {
             if (greenSlider > 0 && blueSlider > 0)
             {
-                greenSlider -= Time.deltaTime;
-                blueSlider -= Time.deltaTime;
+                greenSlider -= Time.deltaTime * 5;
+                blueSlider -= Time.deltaTime * 5;
 
 
                 hitMaterial.SetFloat("_GreenFloat", greenSlider);
@@ -61,9 +61,7 @@ public class Shoot : MonoBehaviour
             }
             else
             {
-
                 turnToRed = false;
-
             }
 
 
@@ -73,8 +71,8 @@ public class Shoot : MonoBehaviour
 
             if (greenSlider < 1 && blueSlider < 1)
             {
-                greenSlider += Time.deltaTime;
-                blueSlider += Time.deltaTime;
+                greenSlider += Time.deltaTime * 5;
+                blueSlider += Time.deltaTime * 5;
 
                 hitMaterial.SetFloat("_GreenFloat", greenSlider);
                 hitMaterial.SetFloat("_BlueFloat", blueSlider);
@@ -109,7 +107,7 @@ public class Shoot : MonoBehaviour
                     Debug.Log(hit.collider.gameObject.name);
 
                     hit.collider.gameObject.GetComponent<Renderer>().material.SetFloat("_EnemyHit", 1);
-
+                    turnToRed = true;
                     
                     // Do the enemy check separately to add force to other things when hit by a bullet
                     if (LayerMask.LayerToName(hit.rigidbody.gameObject.layer) == "Enemy")
