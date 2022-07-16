@@ -217,6 +217,7 @@ public class PlayerController : MonoBehaviour
 
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactRange))
             {
+                Debug.Log("Hit " + hit.collider.name);
                 if (hit.transform.tag == "WeaponMelee" || hit.transform.tag == "WeaponRange")
                 {
                     Debug.Log("Picking up weapon");
