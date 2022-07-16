@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyBouncer : Enemy
+public class EnemyOfficer : Enemy
 {
-
     public float speed;
     private NavMeshAgent agent;
     private GameObject player;
@@ -21,7 +20,7 @@ public class EnemyBouncer : Enemy
     public void Update()
     {
 
-        if (Vector3.Distance(gameObject.transform.position, player.transform.position) > 2)
+        if (Vector3.Distance(gameObject.transform.position, player.transform.position) > 8)
         {
             agent.isStopped = false;
             agent.SetDestination(player.transform.position);
