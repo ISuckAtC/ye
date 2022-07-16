@@ -11,6 +11,13 @@ public class EnemyHugger : Enemy
     private GameObject player;
     private PlayerController pController;
 
+    bool canMash = false;
+    public float mashDelay = 0.5f;
+    float mash;
+    public bool pressed;
+    bool started;
+    public float fillbar = 0;
+
     [SerializeField] LayerMask groundLayer, playerLayer;
 
     //Patrol
@@ -38,6 +45,8 @@ public class EnemyHugger : Enemy
 
         agent.speed = speed;
         initialSpeed = pController.speed;
+
+        mash = mashDelay;
     }
 
     public void Update()
@@ -66,6 +75,16 @@ public class EnemyHugger : Enemy
             grabCooldown -= Time.deltaTime;
         }
 
+        if (canMash)
+        {
+            MashButton();
+        }
+
+        if (fillbar > 100)
+        {
+            CancelInvoke(nameof(ResetAttack));
+            ResetAttack();
+        }
     }
 
 
@@ -137,7 +156,10 @@ public class EnemyHugger : Enemy
 
                     didAttack = true;
                     grabbingPlayer = true;
+                    canMash = true;
+
                     Invoke(nameof(ResetAttack), timeBetweenAttacks);
+
                 }
             }
 
@@ -145,9 +167,35 @@ public class EnemyHugger : Enemy
 
     }
 
+    private void MashButton()
+    {
+        Debug.Log(fillbar);
+
+        mash -= Time.deltaTime;
+
+        if (fillbar > 0)
+        {
+            fillbar -= Time.deltaTime * 25;
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Space) && !pressed)
+        {
+            fillbar += 10;
+            pressed = true;
+            mash = mashDelay;
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            pressed = false;
+        }
+
+    }
+
     private void ResetAttack()
     {
-
+        canMash = false;
+        fillbar = 0;
         didAttack = false;
         grabbingPlayer = false;
         pController.speed = initialSpeed;
