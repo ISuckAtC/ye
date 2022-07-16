@@ -24,6 +24,14 @@ public class PlayerController : MonoBehaviour
     public int maxAmmo;
     private float bulletCooldownTimer;
     private int currentAmmo;
+    private float targetFOV;
+    public float FOVChangeSpeedUp, FOVChangeSpeedDown;
+
+    public float cameraBopAdjustSpeed;
+    public float cameraBopSpeed;
+    public float cameraBopLength;
+    public float cameraBopHeight;
+    private Vector3 cameraBopTarget;
 
     private bool skipFirstFrame = true;
 
@@ -91,6 +99,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (skipFirstFrame)
         {
             skipFirstFrame = false;
@@ -105,6 +115,49 @@ public class PlayerController : MonoBehaviour
 
 
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        if (input.magnitude > 0)
+        {
+            if (targetFOV != 60 + speed)
+            {
+                targetFOV = 60 + speed;
+            }
+
+            float cameraX = Mathf.PingPong(Time.timeSinceLevelLoad * cameraBopSpeed, 4f) - 2f;
+
+            cameraBopTarget = new Vector3(cameraX * cameraBopLength, Mathf.Sqrt(4f - (cameraX * cameraX)) * cameraBopHeight, 0f);
+        }
+        else
+        {
+            if (targetFOV != 60)
+            {
+                targetFOV = 60;   
+            }
+
+            cameraBopTarget = Vector3.zero;
+        }
+
+        if (Camera.main.transform.localPosition != cameraBopTarget)
+        {
+            Camera.main.transform.localPosition = Vector3.MoveTowards(Camera.main.transform.localPosition, cameraBopTarget, cameraBopAdjustSpeed * Time.deltaTime);
+        }
+
+        if (Camera.main.fieldOfView < targetFOV)
+        {
+            Camera.main.fieldOfView += FOVChangeSpeedUp * Time.deltaTime;
+            if (Camera.main.fieldOfView > targetFOV)
+            {
+                Camera.main.fieldOfView = targetFOV;
+            }
+        }
+        else if (Camera.main.fieldOfView > targetFOV)
+        {
+            Camera.main.fieldOfView -= FOVChangeSpeedDown * Time.deltaTime;
+            if (Camera.main.fieldOfView < targetFOV)
+            {
+                Camera.main.fieldOfView = targetFOV;
+            }
+        }
 
         Vector3 movement = (input.x * transform.right + input.y * transform.forward);
 
