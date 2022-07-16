@@ -256,11 +256,11 @@ PrefabInstance:
     - target: {fileID: 4794839294199504083, guid: cb6ce78665027a14b8b07f9139fe4939, type: 3}
       propertyPath: impactEffectObj
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6030127406700833089, guid: 00732d5b69c782c44ac071bba537430b, type: 3}
     - target: {fileID: 4794839294199504083, guid: cb6ce78665027a14b8b07f9139fe4939, type: 3}
       propertyPath: impactEffectEnemy
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 931100914699356905, guid: 4bf651d485c973045934a753a79a7f4a, type: 3}
     - target: {fileID: 4794839294199504092, guid: cb6ce78665027a14b8b07f9139fe4939, type: 3}
       propertyPath: m_RootOrder
       value: 0
