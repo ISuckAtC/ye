@@ -28,6 +28,7 @@ public class EnemyBouncer : Enemy
 
     public float dashSpeed;
     public float dashTime;
+    Vector3 rSphere;
 
     public void Start()
     {
@@ -109,6 +110,11 @@ public class EnemyBouncer : Enemy
 
     void Dash()
     {
+        rSphere = transform.position + Random.insideUnitSphere * 10f;
+
+        //rSphere.y = NavMesh.SamplePosition();
+
+
         agent.isStopped = true;
         Debug.Log("dooodge");
         agent.Move(Random.Range(0, 1) == 0 ? gameObject.transform.right.normalized * dashSpeed * Time.deltaTime : -gameObject.transform.right.normalized * dashSpeed * Time.deltaTime);

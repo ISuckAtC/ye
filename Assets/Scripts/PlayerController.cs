@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 meleeRotation, meleePosition, rangeRotation, rangePosition;
 
+    
 
     public void PickupWeapon(GameObject weapon, Vector3 position, Quaternion rotation)
     {
@@ -113,6 +114,9 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         mr = GetComponent<MeshRenderer>();
+
+        Cursor.lockState = CursorLockMode.Locked;
+
 
         if (weaponMelee)
         {
