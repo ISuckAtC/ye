@@ -5,9 +5,30 @@ using UnityEngine.AI;
 
 public class EnemyOfficer : Enemy
 {
+
     public float speed;
     private NavMeshAgent agent;
     private GameObject player;
+
+    [SerializeField] LayerMask groundLayer, playerLayer;
+
+    //Patrol
+    public Vector3 walkPoint;
+    bool walkPointSet;
+    public float walkPointRange;
+
+    //Attack
+    bool didAttack;
+    public float timeBetweenAttacks;
+
+    //Check
+    public float sightRange, attackRange;
+    public bool inSightRange, inAttackRange;
+
+    public GameObject bullet;
+    public GameObject bulletSpawnPoint;
+    public float bulletSpeed;
+    public float bulletLifeTime;
 
     public void Start()
     {
@@ -19,19 +40,115 @@ public class EnemyOfficer : Enemy
 
     public void Update()
     {
+        inSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
+        inAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
 
-        if (Vector3.Distance(gameObject.transform.position, player.transform.position) > 8)
+        if (!inSightRange && !inAttackRange)
         {
-            agent.isStopped = false;
-            agent.SetDestination(player.transform.position);
-        }
-        else
-        {
-            agent.isStopped = true;
+            Patrol();
         }
 
+        if (inSightRange && !inAttackRange)
+        {
+            Chase();
+        }
 
-
+        if (inAttackRange && inSightRange)
+        {
+            Attack();
+        }
+        
 
     }
+
+
+    void Patrol()
+    {
+        if (!walkPointSet)
+            RandomPatrol();
+
+        if (walkPointSet)
+        {
+            agent.isStopped = false;
+            agent.SetDestination(walkPoint);
+        }
+
+        Vector3 distanceToPointSet = transform.position - walkPoint;
+
+        if (distanceToPointSet.magnitude < 1f)
+        {
+            walkPointSet = false;
+        }
+    }
+
+
+    void RandomPatrol()
+    {
+        float randomX = Random.Range(-walkPointRange, walkPointRange);
+        float randomZ = Random.Range(-walkPointRange, walkPointRange);
+
+        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, groundLayer))
+        {
+            walkPointSet = true;
+        }
+
+    }
+
+    private void Chase()
+    {
+        agent.isStopped = false;
+        agent.SetDestination(player.transform.position);
+
+
+        //if (Vector3.Distance(gameObject.transform.position, player.transform.position) > 8)
+        //{
+        //    agent.isStopped = false;
+        //    agent.SetDestination(player.transform.position);
+        //    transform.LookAt(player.transform.position);
+        //}
+        //else
+        //{
+        //    agent.isStopped = true;
+        //}
+    }
+
+    private void Attack()
+    {
+
+        
+
+        agent.SetDestination(transform.position);
+
+        transform.LookAt(player.transform.position);
+
+
+        if (!didAttack)
+        {
+            //Change this to new
+            GameObject bulletClone = Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
+
+            //bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 32f, ForceMode.Impulse);
+            //bullet.GetComponent<Rigidbody>().AddForce(transform.up * 10f, ForceMode.Impulse);
+
+
+            bulletClone.GetComponent<Rigidbody>().velocity = -bulletSpawnPoint.transform.right * bulletSpeed;
+
+            //bulletClone.transform.forward = gameObject.transform.forward;
+            //
+            //bulletClone.GetComponent<Rigidbody>().velocity = -bulletSpawnPoint.transform.right * bulletSpeed;
+
+            Destroy(bulletClone, bulletLifeTime);
+
+            didAttack = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
+    }
+
+    private void ResetAttack()
+    {
+        didAttack = false;
+    }
+
 }
