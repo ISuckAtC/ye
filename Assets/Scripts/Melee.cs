@@ -52,8 +52,10 @@ public class Melee : MonoBehaviour
                 {
                     bool isEnemyDead = enemy.gameObject.GetComponent<Enemy>().TakeDamage(damageValue);
                     if (isEnemyDead)
-                        nextAttackTime = 0f;
-
+                    {
+                        attackRate = 2f;
+                        anim.speed = 1f;
+                    }
                 }
             }
 
