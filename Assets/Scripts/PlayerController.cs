@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public float interactRange;
     public float speed;
     public Vector2 turnSpeed;
     private Rigidbody rb;
@@ -13,6 +14,10 @@ public class PlayerController : MonoBehaviour
     public GameObject head;
     public GameObject bulletSpawnPoint;
 
+    public GameObject weaponMelee, weaponRange;
+
+
+
     public float bulletSpeed;
     public float bulletLifeTime;
     public float bulletCooldown;
@@ -21,6 +26,59 @@ public class PlayerController : MonoBehaviour
     private int currentAmmo;
 
     private bool skipFirstFrame = true;
+
+
+    public void PickupWeapon(GameObject weapon, Vector3 position, Quaternion rotation)
+    {
+        if (weapon.tag == "WeaponMelee")
+        {
+            if (weaponMelee)
+            {
+                DropWeapon(weaponMelee, position, rotation);
+            }
+            weaponMelee = weapon;
+            weaponMelee.transform.position = position;
+            weaponMelee.transform.rotation = rotation;
+        }
+        else if (weapon.tag == "WeaponRange")
+        {
+            if (weaponRange)
+            {
+                DropWeapon(weaponRange, position, rotation);
+            }
+            weaponRange = weapon;
+            weaponRange.transform.position = position;
+            weaponRange.transform.rotation = rotation;
+        }
+    }
+
+
+
+    public void DropWeapon(bool range, Vector3 position, Quaternion rotation) // true to drop ranged weapon
+    {
+        if (range)
+        {
+            if (weaponRange != null)
+            {
+                weaponRange.transform.parent = null;
+                weaponRange.transform.position = position;
+                weaponRange.transform.rotation = rotation;
+                weaponRange = null;
+            }
+        }
+        else
+        {
+            if (weaponMelee != null)
+            {
+                weaponMelee.transform.parent = null;
+                weaponMelee.transform.position = position;
+                weaponMelee.transform.rotation = rotation;
+                weaponMelee = null;
+            }
+        }
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,6 +135,30 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             currentAmmo = maxAmmo;
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactRange))
+            {
+                // TODO: put bool to indicate range or melee weapon selected
+                DropWeapon(false, hit.point, Quaternion.Euler(Quaternion.Euler(0, 90, 0) * hit.normal));
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactRange))
+            {
+                if (hit.transform.tag == "WeaponMelee" || hit.transform.tag == "WeaponRange")
+                {
+                    PickupWeapon(hit.transform.gameObject, hit.transform.position, hit.transform.rotation);
+                }
+            }
         }
     }
 }
