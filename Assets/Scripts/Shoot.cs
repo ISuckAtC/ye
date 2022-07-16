@@ -11,10 +11,17 @@ public class Shoot : MonoBehaviour
     public Camera cam;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffectEnemy, impactEffectObj;
+    public Animator animator;
 
     private void Start()
     {
         currentAmmo = maxAmmo;
+    }
+
+    private void OnEnable() 
+    {
+        isReloading = false;
+        animator.SetBool("Reloading", false);
     }
 
     // Update is called once per frame
@@ -72,7 +79,12 @@ public class Shoot : MonoBehaviour
 
         Debug.Log("Reloading...");
 
-        yield return new WaitForSeconds(reloadTime);
+        animator.SetBool("Reloading", true);
+
+        yield return new WaitForSeconds(reloadTime + 1.5f);
+
+        animator.SetBool("Reloading", false);
+        yield return new WaitForSeconds(1f);
 
         currentAmmo = maxAmmo;
         isReloading = false;
