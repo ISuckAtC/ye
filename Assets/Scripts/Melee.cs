@@ -11,7 +11,12 @@ public class Melee : MonoBehaviour
     public float attackRate = 2f;
     private float nextAttackTime = 0f;
     public float meleeImpactForce = 2f;
-    public Camera cam;
+    private Camera cam;
+
+    private void Start() 
+    {
+        cam = Camera.main;
+    }
 
     // Update is called once per frame
     void Update()
