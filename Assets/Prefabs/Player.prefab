@@ -127,6 +127,10 @@ MonoBehaviour:
   maxAmmo: 20
   FOVChangeSpeedUp: 300
   FOVChangeSpeedDown: 100
+  cameraBopAdjustSpeed: 10
+  cameraBopSpeed: 10
+  cameraBopLength: 0.1
+  cameraBopHeight: 0.03
 --- !u!54 &8587094512987529739
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -471,22 +471,6 @@ PrefabInstance:
       propertyPath: speed
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 8587094512987529738, guid: f8d7515d352da0a48a7ef3cd52b598f6, type: 3}
-      propertyPath: cameraBopSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8587094512987529738, guid: f8d7515d352da0a48a7ef3cd52b598f6, type: 3}
-      propertyPath: cameraBopHeight
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 8587094512987529738, guid: f8d7515d352da0a48a7ef3cd52b598f6, type: 3}
-      propertyPath: cameraBopLength
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8587094512987529738, guid: f8d7515d352da0a48a7ef3cd52b598f6, type: 3}
-      propertyPath: cameraBopAdjustSpeed
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d7515d352da0a48a7ef3cd52b598f6, type: 3}
 --- !u!1001 &3824224635334526735
