@@ -9,22 +9,12 @@ public class PlayerController : MonoBehaviour
     public Vector2 turnSpeed;
     private Rigidbody rb;
     private MeshRenderer mr;
-    public GameObject bullet;
 
     public GameObject head;
-    public GameObject bulletSpawnPoint;
 
     public GameObject weaponMelee, weaponRange;
     public float health = 100;
 
-
-
-    public float bulletSpeed;
-    public float bulletLifeTime;
-    public float bulletCooldown;
-    public int maxAmmo;
-    private float bulletCooldownTimer;
-    private int currentAmmo;
     private float targetFOV;
     public float FOVChangeSpeedUp, FOVChangeSpeedDown;
 
@@ -93,8 +83,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         mr = GetComponent<MeshRenderer>();
-
-        currentAmmo = maxAmmo;
     }
 
     // Update is called once per frame
@@ -185,11 +173,6 @@ public class PlayerController : MonoBehaviour
         //{
         //    bulletCooldownTimer -= Time.deltaTime;
         //}
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            currentAmmo = maxAmmo;
-        }
 
         if (Input.GetKeyDown(KeyCode.X))
         {
