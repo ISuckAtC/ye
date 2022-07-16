@@ -43,12 +43,18 @@ public class Melee : MonoBehaviour
         {
             Debug.Log(enemy.attachedRigidbody.name);
             //Check if it has rigidBody
-            if (enemy.attachedRigidbody != null && LayerMask.LayerToName(enemy.gameObject.layer) == "Enemy")
+            if (enemy.attachedRigidbody != null)
             {
                 enemy.attachedRigidbody.AddForce(cam.transform.forward * meleeImpactForce, ForceMode.VelocityChange);
-                bool isEnemyDead = enemy.gameObject.GetComponent<Enemy>().TakeDamage(damageValue);
-                if (isEnemyDead)
-                    nextAttackTime = 0f;
+
+                // Do the enemy check separately to add force to other things when hit by a hammer
+                if (LayerMask.LayerToName(enemy.gameObject.layer) == "Enemy")
+                {
+                    bool isEnemyDead = enemy.gameObject.GetComponent<Enemy>().TakeDamage(damageValue);
+                    if (isEnemyDead)
+                        nextAttackTime = 0f;
+
+                }
             }
 
 
@@ -56,14 +62,9 @@ public class Melee : MonoBehaviour
 
         if (hitEnemies.Length == 0)
         {
-            Debug.Log("test to see if failed");
             //Reduces attack rate to a minimum of 1f, values should be adjusted
-            attackRate = Mathf.Max(attackRate * 0.90f, 1f);
-            
-            //TODO figure out the appropiate ammount to reduce animation speed
-            anim.speed = Mathf.Max(attackRate * 0.90f, 1f);
-
-
+            attackRate = Mathf.Max(attackRate * 0.95f, 1f);
+            anim.speed = Mathf.Max(anim.speed * 0.95f, 0.5f);
         }
     }
 

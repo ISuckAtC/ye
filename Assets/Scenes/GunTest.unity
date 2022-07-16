@@ -504,6 +504,7 @@ GameObject:
   - component: {fileID: 1527992783}
   - component: {fileID: 1527992782}
   - component: {fileID: 1527992786}
+  - component: {fileID: 1527992787}
   m_Layer: 3
   m_Name: Box
   m_TagString: Target
@@ -605,6 +606,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1527992787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527992781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9cdd8cea5d92b4e8bd32d7e5927932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1001 &1641786740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -949,6 +963,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 8587094514435977870}
+    - target: {fileID: 4794839294199504083, guid: cb6ce78665027a14b8b07f9139fe4939, type: 3}
+      propertyPath: dmg
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4794839294199504092, guid: cb6ce78665027a14b8b07f9139fe4939, type: 3}
       propertyPath: m_RootOrder
       value: 0

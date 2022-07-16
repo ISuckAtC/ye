@@ -19,7 +19,7 @@ public class Shoot : MonoBehaviour
         cam = Camera.main;
     }
 
-    private void OnEnable() 
+    private void OnEnable()
     {
         isReloading = false;
         animator.SetBool("Reloading", false);
@@ -28,7 +28,7 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isReloading)
+        if (isReloading)
             return;
 
         if (currentAmmo <= 0)
@@ -57,13 +57,19 @@ public class Shoot : MonoBehaviour
         {
             if (hit.transform.tag == "Target" && hit.transform != null)
             {
-                //Debug.Log("Damage Taken");
-
-                //toDo: damage functionality
-                hit.collider.gameObject.GetComponent<Enemy>().TakeDamage(10);
-
                 if (hit.rigidbody != null)
+                {
                     hit.rigidbody.AddForce(-hit.normal * impactForce, ForceMode.VelocityChange);
+                    
+                    // Do the enemy check separately to add force to other things when hit by a bullet
+                    if (LayerMask.LayerToName(hit.rigidbody.gameObject.layer) == "Enemy")
+                    {
+                        bool isEnemyDead = hit.rigidbody.gameObject.GetComponent<Enemy>().TakeDamage(Mathf.RoundToInt(dmg));
+                        if (isEnemyDead)
+                            currentAmmo = maxAmmo;
+
+                    }
+                }
             }
 
             GameObject impactObjGameObject = Instantiate(impactEffectObj, hit.point, Quaternion.LookRotation(Vector3.Reflect(cam.transform.forward, hit.normal)));

@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour
         //WHEN ENEMY GET HIT
         //gameObject.GetComponent<Renderer>().material.SetFloat("_EnemyHit", 1);
 
-        Debug.Log("got damages");
         health -= damage;
         if (health <= 0)
         {
