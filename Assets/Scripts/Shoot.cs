@@ -56,7 +56,7 @@ public class Shoot : MonoBehaviour
         {
             if (hit.transform.tag == "Target" && hit.transform != null)
             {
-                Debug.Log("Damage Taken");
+                //Debug.Log("Damage Taken");
 
                 //toDo: damage functionality
 
