@@ -58,8 +58,8 @@ public class PlayerController : MonoBehaviour
             if (GetComponent<SwitchWeapon>().selectedWeapon != 1)
             {
                 GetComponent<SwitchWeapon>().selectedWeapon = 1;
-                weaponMelee.SetActive(true);
-                weaponRange.SetActive(false);
+                weaponMelee.SetActive(false);
+                weaponRange.SetActive(true);
             }
 
             if (weaponRange)
