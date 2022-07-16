@@ -60,6 +60,7 @@ public class Shoot : MonoBehaviour
                 //Debug.Log("Damage Taken");
 
                 //toDo: damage functionality
+                hit.collider.gameObject.GetComponent<Enemy>().TakeDamage(10);
 
                 if (hit.rigidbody != null)
                     hit.rigidbody.AddForce(-hit.normal * impactForce, ForceMode.VelocityChange);
