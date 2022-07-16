@@ -8,7 +8,7 @@ public class Shoot : MonoBehaviour
     private int currentAmmo;
     private bool isReloading = false;
     private float nextTimeToFire = 0f;
-    public Camera cam;
+    private Camera cam;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffectEnemy, impactEffectObj;
     public Animator animator;
@@ -16,6 +16,7 @@ public class Shoot : MonoBehaviour
     private void Start()
     {
         currentAmmo = maxAmmo;
+        cam = Camera.main;
     }
 
     private void OnEnable() 
