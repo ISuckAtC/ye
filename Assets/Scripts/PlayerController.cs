@@ -33,6 +33,13 @@ public class PlayerController : MonoBehaviour
     {
         if (weapon.tag == "WeaponMelee")
         {
+            if (GetComponent<SwitchWeapon>().selectedWeapon != 0)
+            {
+                GetComponent<SwitchWeapon>().selectedWeapon = 0;
+                weaponMelee.SetActive(true);
+                weaponRange.SetActive(false);
+            }
+
             if (weaponMelee)
             {
                 DropWeapon(weaponMelee, position, rotation);
@@ -44,15 +51,17 @@ public class PlayerController : MonoBehaviour
             weaponMelee.transform.localPosition = meleePosition;
             weaponMelee.transform.localEulerAngles = meleeRotation;
 
-            if (GetComponent<SwitchWeapon>().selectedWeapon != 0)
-            {
-                GetComponent<SwitchWeapon>().selectedWeapon = 0;
-                weaponMelee.SetActive(true);
-                weaponRange.SetActive(false);
-            }
+            
         }
         else if (weapon.tag == "WeaponRange")
         {
+            if (GetComponent<SwitchWeapon>().selectedWeapon != 1)
+            {
+                GetComponent<SwitchWeapon>().selectedWeapon = 1;
+                weaponMelee.SetActive(true);
+                weaponRange.SetActive(false);
+            }
+
             if (weaponRange)
             {
                 DropWeapon(weaponRange, position, rotation);
@@ -64,12 +73,7 @@ public class PlayerController : MonoBehaviour
             weaponRange.transform.localPosition = rangePosition;
             weaponRange.transform.localEulerAngles = rangeRotation;
 
-            if (GetComponent<SwitchWeapon>().selectedWeapon != 1)
-            {
-                GetComponent<SwitchWeapon>().selectedWeapon = 1;
-                weaponMelee.SetActive(true);
-                weaponRange.SetActive(false);
-            }
+            
         }
     }
 
