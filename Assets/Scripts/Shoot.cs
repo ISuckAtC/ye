@@ -1,17 +1,38 @@
 using UnityEngine;
+using System.Collections;
 
 public class Shoot : MonoBehaviour
 {
-    public float range = 100f, dmg = 10f, impactForce = 35f;
+    public float range = 100f, dmg = 10f, impactForce = 1f, fireRate = 15f, reloadTime = 1f;
+    public int maxAmmo = 10;
+    private int currentAmmo;
+    private bool isReloading = false;
+    private float nextTimeToFire = 0f;
     public Camera cam;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffectEnemy, impactEffectObj;
 
+    private void Start()
+    {
+        currentAmmo = maxAmmo;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if(isReloading)
+            return;
+
+        if (currentAmmo <= 0)
         {
+            StartCoroutine(Reload());
+
+            return;
+        }
+
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        {
+            nextTimeToFire = Time.time + 1f / fireRate;
             Fire();
         }
     }
@@ -19,6 +40,8 @@ public class Shoot : MonoBehaviour
     void Fire()
     {
         muzzleFlash.Play();
+
+        currentAmmo--;
 
         RaycastHit hit;
 
@@ -41,5 +64,17 @@ public class Shoot : MonoBehaviour
 
             Destroy(impactObjGameObject, 2f);
         }
+    }
+
+    IEnumerator Reload()
+    {
+        isReloading = true;
+
+        Debug.Log("Reloading...");
+
+        yield return new WaitForSeconds(reloadTime);
+
+        currentAmmo = maxAmmo;
+        isReloading = false;
     }
 }
