@@ -32,17 +32,14 @@ public class Shoot : MonoBehaviour
 
                 if (hit.rigidbody != null)
                     hit.rigidbody.AddForce(-hit.normal * impactForce, ForceMode.VelocityChange);
-
-                GameObject impactEnemyGameObject = Instantiate(impactEffectEnemy, hit.point, Quaternion.LookRotation(Vector3.Reflect(cam.transform.forward, hit.normal)));
-
-                Destroy(impactEnemyGameObject, 2f);
             }
-            else if (hit.transform.tag == "NotTarget" && hit.transform != null)
-            {
-                GameObject impactObjGameObject = Instantiate(impactEffectObj, hit.point, Quaternion.LookRotation(Vector3.Reflect(cam.transform.forward, hit.normal)));
 
-                Destroy(impactObjGameObject, 2f);
-            }
+            GameObject impactObjGameObject = Instantiate(impactEffectObj, hit.point, Quaternion.LookRotation(Vector3.Reflect(cam.transform.forward, hit.normal)));
+
+            ParticleSystem.MainModule mainModule = impactObjGameObject.GetComponent<ParticleSystem>().main;
+            mainModule.startColor = new ParticleSystem.MinMaxGradient(hit.transform.GetComponent<Renderer>().material.color);
+
+            Destroy(impactObjGameObject, 2f);
         }
     }
 }
