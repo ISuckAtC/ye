@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 7192820106231767223}
   - component: {fileID: 7192820106231767224}
   - component: {fileID: 4171179196575726508}
+  - component: {fileID: 8979611048620247582}
   m_Layer: 0
   m_Name: GavelHammer
   m_TagString: Untagged
@@ -175,3 +176,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &8979611048620247582
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407293911606116149}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5899087191965100844, guid: a6212c2a6420fc746afa671fa9eb894e, type: 3}
