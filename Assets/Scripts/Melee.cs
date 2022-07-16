@@ -11,9 +11,11 @@ public class Melee : MonoBehaviour
     public float attackRate = 2f;
     private float nextAttackTime = 0f;
     public float meleeImpactForce = 2f;
+
+    public int damageValue = 3;
     private Camera cam;
 
-    private void Start() 
+    private void Start()
     {
         cam = Camera.main;
     }
@@ -39,11 +41,29 @@ public class Melee : MonoBehaviour
 
         foreach (Collider enemy in hitEnemies)
         {
-            //do damage 
-            Debug.Log("melee hit");
-
-            if(enemy.attachedRigidbody != null)
+            Debug.Log(enemy.attachedRigidbody.name);
+            //Check if it has rigidBody
+            if (enemy.attachedRigidbody != null && LayerMask.LayerToName(enemy.gameObject.layer) == "Enemy")
+            {
                 enemy.attachedRigidbody.AddForce(cam.transform.forward * meleeImpactForce, ForceMode.VelocityChange);
+                bool isEnemyDead = enemy.gameObject.GetComponent<Enemy>().TakeDamage(damageValue);
+                if (isEnemyDead)
+                    nextAttackTime = 0f;
+            }
+
+
+        }
+
+        if (hitEnemies.Length == 0)
+        {
+            Debug.Log("test to see if failed");
+            //Reduces attack rate to a minimum of 1f, values should be adjusted
+            attackRate = Mathf.Max(attackRate * 0.90f, 1f);
+            
+            //TODO figure out the appropiate ammount to reduce animation speed
+            anim.speed = Mathf.Max(attackRate * 0.90f, 1f);
+
+
         }
     }
 
