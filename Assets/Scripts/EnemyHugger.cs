@@ -107,10 +107,13 @@ public class EnemyHugger : Enemy
     {
         agent.isStopped = false;
         agent.SetDestination(player.transform.position);
+        
     }
 
     private void Attack()
     {
+
+        
 
         if (grabCooldown <= 0)
         {
@@ -140,7 +143,6 @@ public class EnemyHugger : Enemy
 
         }
 
-        
     }
 
     private void ResetAttack()

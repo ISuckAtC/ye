@@ -8,6 +8,9 @@ public class Enemy : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
+        //WHEN ENEMY GET HIT
+        //gameObject.GetComponent<Renderer>().material.SetFloat("_EnemyHit", 1);
+
         health -= damage;
         if (health <= 0)
         {
