@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private bool skipFirstFrame = true;
 
+    private Vector3 meleeRotation, meleePosition, rangeRotation, rangePosition;
+
 
     public void PickupWeapon(GameObject weapon, Vector3 position, Quaternion rotation)
     {
@@ -35,9 +37,10 @@ public class PlayerController : MonoBehaviour
             {
                 DropWeapon(weaponMelee, position, rotation);
             }
+            weapon.GetComponent<Rigidbody>().isKinematic = true;
             weaponMelee = weapon;
-            weaponMelee.transform.position = position;
-            weaponMelee.transform.rotation = rotation;
+            weaponMelee.transform.localPosition = meleePosition;
+            weaponMelee.transform.localEulerAngles = meleeRotation;
         }
         else if (weapon.tag == "WeaponRange")
         {
@@ -45,9 +48,10 @@ public class PlayerController : MonoBehaviour
             {
                 DropWeapon(weaponRange, position, rotation);
             }
+            weapon.GetComponent<Rigidbody>().isKinematic = true;
             weaponRange = weapon;
-            weaponRange.transform.position = position;
-            weaponRange.transform.rotation = rotation;
+            weaponRange.transform.localPosition = rangePosition;
+            weaponRange.transform.localEulerAngles = rangeRotation;
         }
     }
 
@@ -62,6 +66,7 @@ public class PlayerController : MonoBehaviour
                 weaponRange.transform.parent = null;
                 weaponRange.transform.position = position;
                 weaponRange.transform.rotation = rotation;
+                weaponRange.GetComponent<Rigidbody>().isKinematic = false;
                 weaponRange = null;
             }
         }
@@ -72,6 +77,7 @@ public class PlayerController : MonoBehaviour
                 weaponMelee.transform.parent = null;
                 weaponMelee.transform.position = position;
                 weaponMelee.transform.rotation = rotation;
+                weaponMelee.GetComponent<Rigidbody>().isKinematic = false;
                 weaponMelee = null;
             }
         }
@@ -83,6 +89,18 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         mr = GetComponent<MeshRenderer>();
+
+        if (weaponMelee)
+        {
+            meleeRotation = weaponMelee.transform.localEulerAngles;
+            meleePosition = weaponMelee.transform.localPosition;
+        }
+
+        if (weaponRange)
+        {
+            rangeRotation = weaponRange.transform.localEulerAngles;
+            rangePosition = weaponRange.transform.localPosition;
+        }
     }
 
     // Update is called once per frame
