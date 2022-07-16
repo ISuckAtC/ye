@@ -26,6 +26,9 @@ public class EnemyBouncer : Enemy
     public float sightRange, attackRange;
     public bool inSightRange, inAttackRange;
 
+    public float dashSpeed;
+    public float dashTime;
+
     public void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -61,6 +64,7 @@ public class EnemyBouncer : Enemy
 
     void Patrol()
     {
+        CancelInvoke(nameof(Dash));
         if (!walkPointSet)
             RandomPatrol();
 
@@ -81,6 +85,7 @@ public class EnemyBouncer : Enemy
 
     void RandomPatrol()
     {
+
         float randomX = Random.Range(-walkPointRange, walkPointRange);
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
 
@@ -99,14 +104,24 @@ public class EnemyBouncer : Enemy
         agent.SetDestination(player.transform.position);
 
 
+        InvokeRepeating(nameof(Dash), 5f, 3f);
+    }
+
+    void Dash()
+    {
+        agent.isStopped = true;
+        Debug.Log("dooodge");
+        agent.Move(Random.Range(0, 1) == 0 ? gameObject.transform.right.normalized * dashSpeed * Time.deltaTime : -gameObject.transform.right.normalized * dashSpeed * Time.deltaTime);
+        //agent.Move(gameObject.transform.right * dashSpeed * Time.deltaTime);
+        agent.isStopped = false;
+
 
     }
 
     private void Attack()
     {
 
-
-
+        CancelInvoke(nameof(Dash));
         agent.SetDestination(transform.position);
 
         transform.LookAt(player.transform.position);

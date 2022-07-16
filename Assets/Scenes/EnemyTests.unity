@@ -793,7 +793,7 @@ GameObject:
   - component: {fileID: 1354839644}
   - component: {fileID: 1354839645}
   - component: {fileID: 1354839646}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bouncer
   m_TagString: Target
   m_Icon: {fileID: 0}
@@ -907,6 +907,8 @@ MonoBehaviour:
   attackRange: 2
   inSightRange: 0
   inAttackRange: 0
+  dashSpeed: 0
+  dashTime: 0
 --- !u!195 &1354839645
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1057,7 +1059,7 @@ GameObject:
   - component: {fileID: 1385813939}
   - component: {fileID: 1385813933}
   - component: {fileID: 1385813940}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Officer
   m_TagString: Target
   m_Icon: {fileID: 0}
