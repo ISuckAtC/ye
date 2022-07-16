@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyOfficer : Enemy
+public class EnemyHugger : Enemy
 {
-
     public float speed;
     private NavMeshAgent agent;
     private GameObject player;
@@ -25,10 +24,6 @@ public class EnemyOfficer : Enemy
     public float sightRange, attackRange;
     public bool inSightRange, inAttackRange;
 
-    public GameObject bullet;
-    public GameObject bulletSpawnPoint;
-    public float bulletSpeed;
-    public float bulletLifeTime;
 
     public void Start()
     {
@@ -57,7 +52,7 @@ public class EnemyOfficer : Enemy
         {
             Attack();
         }
-        
+
 
     }
 
@@ -105,7 +100,7 @@ public class EnemyOfficer : Enemy
     private void Attack()
     {
 
-        
+
 
         agent.SetDestination(transform.position);
 
@@ -115,13 +110,10 @@ public class EnemyOfficer : Enemy
         if (!didAttack)
         {
 
-            GameObject bulletClone = Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
-
-
-            bulletClone.GetComponent<Rigidbody>().velocity = -bulletSpawnPoint.transform.right * bulletSpeed;
-
-
-            Destroy(bulletClone, bulletLifeTime);
+            if (Vector3.Distance(gameObject.transform.position, player.transform.position) < 1)
+            {
+                Debug.Log("aaaa");
+            }
 
             didAttack = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -132,5 +124,4 @@ public class EnemyOfficer : Enemy
     {
         didAttack = false;
     }
-
 }
