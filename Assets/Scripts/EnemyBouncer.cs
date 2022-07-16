@@ -25,6 +25,7 @@ public class EnemyBouncer : Enemy
         {
             agent.isStopped = false;
             agent.SetDestination(player.transform.position);
+            transform.LookAt(player.transform.position);
         }
         else
         {
