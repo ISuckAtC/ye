@@ -64,6 +64,8 @@ public class SwitchWeapon : MonoBehaviour
                         pC.weaponMelee.SetActive(true);
                         pC.weaponRange.SetActive(false);
                     }
+                    else
+                        selectedWeapon = 1;
                     break;
 
                 case 1:
@@ -72,6 +74,8 @@ public class SwitchWeapon : MonoBehaviour
                         pC.weaponRange.SetActive(true);
                         pC.weaponMelee.SetActive(false);
                     }
+                    else
+                        selectedWeapon = 0;
                     break;
             }
         }
