@@ -6,8 +6,10 @@ using UnityEngine.AI;
 public class EnemyHugger : Enemy
 {
     public float speed;
+    public float initialSpeed;
     private NavMeshAgent agent;
     private GameObject player;
+    private PlayerController pController;
 
     [SerializeField] LayerMask groundLayer, playerLayer;
 
@@ -23,14 +25,19 @@ public class EnemyHugger : Enemy
     //Check
     public float sightRange, attackRange;
     public bool inSightRange, inAttackRange;
-
+    public bool grabbingPlayer;
+    bool checkGrab;
+    float grabCooldown = 0f;
 
     public void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player");
+        pController = player.GetComponent<PlayerController>();
 
         agent.speed = speed;
+        initialSpeed = pController.speed;
     }
 
     public void Update()
@@ -53,6 +60,11 @@ public class EnemyHugger : Enemy
             Attack();
         }
 
+
+        if (checkGrab)
+        {
+            grabCooldown -= Time.deltaTime;
+        }
 
     }
 
@@ -100,28 +112,44 @@ public class EnemyHugger : Enemy
     private void Attack()
     {
 
-
-
-        agent.SetDestination(transform.position);
-
-        transform.LookAt(player.transform.position);
-
-
-        if (!didAttack)
+        if (grabCooldown <= 0)
         {
+            checkGrab = false;
 
-            if (Vector3.Distance(gameObject.transform.position, player.transform.position) < 1)
+            agent.SetDestination(transform.position);
+
+            transform.LookAt(player.transform.position);
+
+
+            if (!didAttack)
             {
-                Debug.Log("aaaa");
+
+                if (Vector3.Distance(gameObject.transform.position, player.transform.position) < 2)
+                {
+
+                    //GRAB PLAYER
+                    //MAYBE REMOVE THE ABIITY TO MOVE
+                    //CHANGE SPEED TO 0?
+                    pController.speed = 0.2f;
+
+                    didAttack = true;
+                    grabbingPlayer = true;
+                    Invoke(nameof(ResetAttack), timeBetweenAttacks);
+                }
             }
 
-            didAttack = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
+
+        
     }
 
     private void ResetAttack()
     {
+
         didAttack = false;
+        grabbingPlayer = false;
+        pController.speed = initialSpeed;
+        checkGrab = true;
+        grabCooldown = 2f;
     }
 }
