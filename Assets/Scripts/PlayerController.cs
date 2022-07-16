@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletSpawnPoint;
 
     public GameObject weaponMelee, weaponRange;
+    public float health = 100;
 
 
 
@@ -99,7 +100,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(health);
 
         if (skipFirstFrame)
         {
@@ -163,27 +164,27 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = new Vector3(movement.x * speed, rb.velocity.y, movement.z * speed);
 
-        if (bulletCooldownTimer <= 0)
-        {
-            if (Input.GetMouseButton(0) && currentAmmo > 0)
-            {
-                bulletCooldownTimer = bulletCooldown;
-                currentAmmo--;
-
-                Vector3 direction = bulletSpawnPoint.transform.position - head.transform.position;
-
-                GameObject bulletClone = Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
-
-                bulletClone.transform.forward = direction;
-
-                bulletClone.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.transform.forward * bulletSpeed;
-                Destroy(bulletClone, bulletLifeTime);
-            }
-        }
-        else
-        {
-            bulletCooldownTimer -= Time.deltaTime;
-        }
+        //if (bulletCooldownTimer <= 0)
+        //{
+        //    if (Input.GetMouseButton(0) && currentAmmo > 0)
+        //    {
+        //        bulletCooldownTimer = bulletCooldown;
+        //        currentAmmo--;
+        //
+        //        Vector3 direction = bulletSpawnPoint.transform.position - head.transform.position;
+        //
+        //        GameObject bulletClone = Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
+        //
+        //        bulletClone.transform.forward = direction;
+        //
+        //        bulletClone.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.transform.forward * bulletSpeed;
+        //        Destroy(bulletClone, bulletLifeTime);
+        //    }
+        //}
+        //else
+        //{
+        //    bulletCooldownTimer -= Time.deltaTime;
+        //}
 
         if (Input.GetKeyDown(KeyCode.R))
         {

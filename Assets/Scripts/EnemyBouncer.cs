@@ -9,6 +9,7 @@ public class EnemyBouncer : Enemy
     public float speed;
     private NavMeshAgent agent;
     private GameObject player;
+    private PlayerController pController;
 
     [SerializeField] LayerMask groundLayer, playerLayer;
 
@@ -29,6 +30,7 @@ public class EnemyBouncer : Enemy
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player");
+        pController = player.GetComponent<PlayerController>();
 
         agent.speed = speed;
     }
@@ -113,6 +115,7 @@ public class EnemyBouncer : Enemy
         if (!didAttack)
         {
             //ATTACK
+            pController.health -= 10;
 
             didAttack = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
