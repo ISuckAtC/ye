@@ -110,14 +110,18 @@ public class EnemyBouncer : Enemy
 
     void Dash()
     {
-        rSphere = transform.position + Random.insideUnitSphere * 10f;
+        rSphere = transform.position + Random.insideUnitSphere * 1.5f;
 
-        //rSphere.y = NavMesh.SamplePosition();
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(rSphere, out hit, 10f, NavMesh.AllAreas))
+        {
+            
+        }
 
 
         agent.isStopped = true;
         Debug.Log("dooodge");
-        agent.Move(Random.Range(0, 1) == 0 ? gameObject.transform.right.normalized * dashSpeed * Time.deltaTime : -gameObject.transform.right.normalized * dashSpeed * Time.deltaTime);
+        agent.Move(new Vector3(rSphere.x, hit.position.y, rSphere.z).normalized * dashSpeed * Time.deltaTime);
         //agent.Move(gameObject.transform.right * dashSpeed * Time.deltaTime);
         agent.isStopped = false;
 
@@ -148,6 +152,11 @@ public class EnemyBouncer : Enemy
         didAttack = false;
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.position, 1.5f);
+    }
 
 
 }
