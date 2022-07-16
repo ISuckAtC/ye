@@ -169,7 +169,6 @@ public class EnemyHugger : Enemy
 
     private void MashButton()
     {
-        Debug.Log(fillbar);
 
         mash -= Time.deltaTime;
 

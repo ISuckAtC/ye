@@ -7,6 +7,8 @@ Shader "Custom/EnemyHitShdr"
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
         _EnemyHit ("EnemyHit", Float) = 0
+        _GreenFloat("GreenFloat", Float) = 0
+        _BlueFloat("BlueFloat", Float) = 0
     }
     SubShader
     {
@@ -31,6 +33,9 @@ Shader "Custom/EnemyHitShdr"
         half _Metallic;
         fixed4 _Color;
         float _EnemyHit;
+        float _GreenFloat;
+        float _BlueFloat;
+
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -50,7 +55,9 @@ Shader "Custom/EnemyHitShdr"
             }
             else
             {
-                o.Albedo = c.rgb * float4(1, sin(_Time.y * 10), sin(_Time.y * 10), 1);
+                c.g = _GreenFloat;
+                c.b = _BlueFloat;
+                o.Albedo = c.rgb;
             }
 
             

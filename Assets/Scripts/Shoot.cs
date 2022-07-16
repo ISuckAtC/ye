@@ -12,6 +12,10 @@ public class Shoot : MonoBehaviour
     public ParticleSystem muzzleFlash;
     public GameObject impactEffectEnemy, impactEffectObj;
     public Animator animator;
+    bool turnToRed;
+    float greenSlider = 1;
+    float blueSlider = 1;
+    Material hitMaterial;
 
     private void Start()
     {
@@ -43,6 +47,45 @@ public class Shoot : MonoBehaviour
             nextTimeToFire = Time.time + 1f / fireRate;
             Fire();
         }
+
+        if (turnToRed)
+        {
+            if (greenSlider > 0 && blueSlider > 0)
+            {
+                greenSlider -= Time.deltaTime;
+                blueSlider -= Time.deltaTime;
+
+
+                hitMaterial.SetFloat("_GreenFloat", greenSlider);
+                hitMaterial.SetFloat("_BlueFloat", blueSlider);
+            }
+            else
+            {
+
+                turnToRed = false;
+
+            }
+
+
+        }
+        else
+        {
+
+            if (greenSlider < 1 && blueSlider < 1)
+            {
+                greenSlider += Time.deltaTime;
+                blueSlider += Time.deltaTime;
+
+                hitMaterial.SetFloat("_GreenFloat", greenSlider);
+                hitMaterial.SetFloat("_BlueFloat", blueSlider);
+            }
+            else
+            {
+
+                greenSlider = 1;
+                blueSlider = 1;
+            }
+        }
     }
 
     void Fire()
@@ -55,11 +98,18 @@ public class Shoot : MonoBehaviour
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
+            Debug.Log("bbb");
             if (hit.transform.tag == "Target" && hit.transform != null)
             {
+                Debug.Log(hit.rigidbody);
                 if (hit.rigidbody != null)
                 {
                     hit.rigidbody.AddForce(-hit.normal * impactForce, ForceMode.VelocityChange);
+                    Debug.Log("aaa");
+                    Debug.Log(hit.collider.gameObject.name);
+
+                    hit.collider.gameObject.GetComponent<Renderer>().material.SetFloat("_EnemyHit", 1);
+
                     
                     // Do the enemy check separately to add force to other things when hit by a bullet
                     if (LayerMask.LayerToName(hit.rigidbody.gameObject.layer) == "Enemy")
@@ -67,6 +117,8 @@ public class Shoot : MonoBehaviour
                         bool isEnemyDead = hit.rigidbody.gameObject.GetComponent<Enemy>().TakeDamage(Mathf.RoundToInt(dmg));
                         if (isEnemyDead)
                             currentAmmo = maxAmmo;
+
+                        hitMaterial = hit.collider.gameObject.GetComponent<Renderer>().material;
 
                     }
                 }
