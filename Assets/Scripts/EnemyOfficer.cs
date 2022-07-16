@@ -29,6 +29,10 @@ public class EnemyOfficer : Enemy
     public GameObject bulletSpawnPoint;
     public float bulletSpeed;
     public float bulletLifeTime;
+    public LayerMask enemyLayers;
+    public float ballRadius;
+    private GameObject bulletClone;
+    int help = 0;
 
     public void Start()
     {
@@ -57,7 +61,35 @@ public class EnemyOfficer : Enemy
         {
             Attack();
         }
+
+
+        if (didAttack)
+        {
+            Collider[] hitEnemies = Physics.OverlapSphere(bulletClone.transform.position, ballRadius, enemyLayers);
+            foreach (Collider pl in hitEnemies)
+            {
+                Debug.Log(pl.attachedRigidbody.name);
+                //Check if it has rigidBody
+                if (pl.attachedRigidbody != null)
+                {
+                    
+                    if (LayerMask.LayerToName(pl.gameObject.layer) == "Player")
+                    {
+                        if (help == 0)
+                        {
+                            pl.GetComponent<PlayerController>().health -= 10;
+                            help = 1;
+                        }
+
+                    }
+                }
+
+
+            }
+
+        }
         
+
 
     }
 
@@ -115,7 +147,7 @@ public class EnemyOfficer : Enemy
         if (!didAttack)
         {
 
-            GameObject bulletClone = Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
+            bulletClone = Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
 
 
             bulletClone.GetComponent<Rigidbody>().velocity = -bulletSpawnPoint.transform.right * bulletSpeed;
@@ -131,6 +163,7 @@ public class EnemyOfficer : Enemy
     private void ResetAttack()
     {
         didAttack = false;
+        help = 0;
     }
 
 }

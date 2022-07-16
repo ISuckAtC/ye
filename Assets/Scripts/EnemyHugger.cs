@@ -36,6 +36,12 @@ public class EnemyHugger : Enemy
     bool checkGrab;
     float grabCooldown = 0f;
 
+    private void OnDestroy()
+    {
+        CancelInvoke(nameof(ResetAttack));
+        ResetAttack();
+    }
+
     public void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -85,6 +91,8 @@ public class EnemyHugger : Enemy
             CancelInvoke(nameof(ResetAttack));
             ResetAttack();
         }
+
+
     }
 
 
@@ -161,6 +169,7 @@ public class EnemyHugger : Enemy
                     Invoke(nameof(ResetAttack), timeBetweenAttacks);
 
                 }
+
             }
 
         }
