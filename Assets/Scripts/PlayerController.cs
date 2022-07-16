@@ -181,6 +181,9 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactRange))
             {
                 // TODO: put bool to indicate range or melee weapon selected
+
+                bool isRange = (transform.GetChild(0).GetComponentInChildren<SwitchWeapon>().selectedWeapon == 1);
+
                 DropWeapon(false, hit.point, Quaternion.Euler(Quaternion.Euler(0, 90, 0) * hit.normal));
             }
         }
