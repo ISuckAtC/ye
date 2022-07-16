@@ -37,7 +37,7 @@ public class Shoot : MonoBehaviour
             return;
         }
 
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && transform.parent.gameObject.tag == "MainCamera")
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && transform.parent?.gameObject.tag == "MainCamera")
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Fire();
