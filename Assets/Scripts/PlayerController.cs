@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
                 DropWeapon(weaponMelee, position, rotation);
             }
             weapon.GetComponent<Rigidbody>().isKinematic = true;
-            weapon.GetComponent<Collider>().enabled = true;
+            weapon.GetComponent<Collider>().enabled = false;
             weaponMelee = weapon;
             weaponMelee.transform.parent = Camera.main.transform;
             weaponMelee.transform.localPosition = meleePosition;
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
                 DropWeapon(weaponRange, position, rotation);
             }
             weapon.GetComponent<Rigidbody>().isKinematic = true;
-            weapon.GetComponent<Collider>().enabled = true;
+            weapon.GetComponent<Collider>().enabled = false;
             weaponRange = weapon;
             weaponRange.transform.parent = Camera.main.transform;
             weaponRange.transform.localPosition = rangePosition;
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
                 weaponRange.transform.position = position;
                 weaponRange.transform.rotation = rotation;
                 weaponRange.GetComponent<Rigidbody>().isKinematic = false;
-                weaponRange.GetComponent<Collider>().enabled = false;
+                weaponRange.GetComponent<Collider>().enabled = true;
                 weaponRange = null;
             }
         }
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
                 weaponMelee.transform.position = position;
                 weaponMelee.transform.rotation = rotation;
                 weaponMelee.GetComponent<Rigidbody>().isKinematic = false;
-                weaponMelee.GetComponent<Collider>().enabled = false;
+                weaponMelee.GetComponent<Collider>().enabled = true;
                 weaponMelee = null;
             }
         }
