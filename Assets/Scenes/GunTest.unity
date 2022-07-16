@@ -15623,7 +15623,7 @@ MonoBehaviour:
   impactForce: 1
   fireRate: 15
   reloadTime: 1
-  maxAmmo: 10
+  maxAmmo: 20
   cam: {fileID: 8587094514435977870}
   muzzleFlash: {fileID: 1800476614}
   impactEffectEnemy: {fileID: 454967120}
