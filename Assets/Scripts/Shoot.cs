@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    public float range = 100f, dmg = 10f;
+    public float range = 100f, dmg = 10f, impactForce = 35f;
     public Camera cam;
     public ParticleSystem muzzleFlash;
-    public GameObject impactEffect;
+    public GameObject impactEffectEnemy, impactEffectObj;
 
     // Update is called once per frame
     void Update()
@@ -30,9 +30,18 @@ public class Shoot : MonoBehaviour
 
                 //toDo: damage functionality
 
-                GameObject impactGameObject = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(Vector3.Reflect(cam.transform.forward, hit.normal)));
+                if (hit.rigidbody != null)
+                    hit.rigidbody.AddForce(-hit.normal * impactForce, ForceMode.VelocityChange);
 
-                Destroy(impactGameObject, 2f);
+                GameObject impactEnemyGameObject = Instantiate(impactEffectEnemy, hit.point, Quaternion.LookRotation(Vector3.Reflect(cam.transform.forward, hit.normal)));
+
+                Destroy(impactEnemyGameObject, 2f);
+            }
+            else if (hit.transform.tag == "NotTarget" && hit.transform != null)
+            {
+                GameObject impactObjGameObject = Instantiate(impactEffectObj, hit.point, Quaternion.LookRotation(Vector3.Reflect(cam.transform.forward, hit.normal)));
+
+                Destroy(impactObjGameObject, 2f);
             }
         }
     }
