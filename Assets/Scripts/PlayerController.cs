@@ -184,7 +184,7 @@ public class PlayerController : MonoBehaviour
 
                 bool isRange = (transform.GetChild(0).GetComponentInChildren<SwitchWeapon>().selectedWeapon == 1);
 
-                DropWeapon(false, hit.point, Quaternion.Euler(Quaternion.Euler(0, 90, 0) * hit.normal));
+                DropWeapon(isRange, hit.point, Quaternion.Euler(Quaternion.Euler(0, 90, 0) * hit.normal));
             }
         }
 
