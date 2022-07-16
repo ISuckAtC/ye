@@ -195,6 +195,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (hit.transform.tag == "WeaponMelee" || hit.transform.tag == "WeaponRange")
                 {
+                    Debug.Log("Picking up weapon");
                     PickupWeapon(hit.transform.gameObject, hit.transform.position, hit.transform.rotation);
                 }
             }
