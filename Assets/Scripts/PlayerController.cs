@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
             weapon.GetComponent<Rigidbody>().isKinematic = true;
             weapon.GetComponent<Collider>().enabled = true;
             weaponMelee = weapon;
+            weaponMelee.transform.parent = Camera.main.transform;
             weaponMelee.transform.localPosition = meleePosition;
             weaponMelee.transform.localEulerAngles = meleeRotation;
         }
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
             weapon.GetComponent<Rigidbody>().isKinematic = true;
             weapon.GetComponent<Collider>().enabled = true;
             weaponRange = weapon;
+            weaponRange.transform.parent = Camera.main.transform;
             weaponRange.transform.localPosition = rangePosition;
             weaponRange.transform.localEulerAngles = rangeRotation;
         }
