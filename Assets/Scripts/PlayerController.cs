@@ -182,7 +182,7 @@ public class PlayerController : MonoBehaviour
             {
                 // TODO: put bool to indicate range or melee weapon selected
 
-                bool isRange = (transform.GetChild(0).GetComponentInChildren<SwitchWeapon>().selectedWeapon == 1);
+                bool isRange = (GetComponent<SwitchWeapon>().selectedWeapon == 1);
 
                 DropWeapon(isRange, hit.point, Quaternion.Euler(Quaternion.Euler(0, 90, 0) * hit.normal));
             }
