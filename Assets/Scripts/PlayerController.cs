@@ -43,6 +43,13 @@ public class PlayerController : MonoBehaviour
             weaponMelee.transform.parent = Camera.main.transform;
             weaponMelee.transform.localPosition = meleePosition;
             weaponMelee.transform.localEulerAngles = meleeRotation;
+
+            if (GetComponent<SwitchWeapon>().selectedWeapon != 0)
+            {
+                GetComponent<SwitchWeapon>().selectedWeapon = 0;
+                weaponMelee.SetActive(true);
+                weaponRange.SetActive(false);
+            }
         }
         else if (weapon.tag == "WeaponRange")
         {
@@ -56,6 +63,13 @@ public class PlayerController : MonoBehaviour
             weaponRange.transform.parent = Camera.main.transform;
             weaponRange.transform.localPosition = rangePosition;
             weaponRange.transform.localEulerAngles = rangeRotation;
+
+            if (GetComponent<SwitchWeapon>().selectedWeapon != 1)
+            {
+                GetComponent<SwitchWeapon>().selectedWeapon = 1;
+                weaponMelee.SetActive(true);
+                weaponRange.SetActive(false);
+            }
         }
     }
 
