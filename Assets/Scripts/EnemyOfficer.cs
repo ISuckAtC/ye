@@ -150,7 +150,7 @@ public class EnemyOfficer : Enemy
             bulletClone = Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
 
 
-            bulletClone.GetComponent<Rigidbody>().velocity = -bulletSpawnPoint.transform.right * bulletSpeed;
+            bulletClone.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.transform.forward * bulletSpeed;
 
 
             Destroy(bulletClone, bulletLifeTime);
