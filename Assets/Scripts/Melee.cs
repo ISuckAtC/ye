@@ -58,8 +58,6 @@ public class Melee : MonoBehaviour
                     }
                 }
             }
-
-
         }
 
         if (hitEnemies.Length == 0)
