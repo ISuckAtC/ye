@@ -147,6 +147,7 @@ public class Shoot : MonoBehaviour
         Debug.Log("Reloading...");
 
         animator.SetBool("Reloading", true);
+        
 
         yield return new WaitForSeconds(reloadTime + 1.5f);
 
