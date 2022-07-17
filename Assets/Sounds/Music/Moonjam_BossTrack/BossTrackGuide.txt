@@ -1,0 +1,10 @@
+0-8s: Boss track intro
+8-44s: BossTrack first loop
+44-48s: Transition to 2nd loop
+48-1:24s: 2nd loop 2nd transition
+1:24s-2:00s: 2nd loop/chorus
+2:00-2:04s:transition to 3rd loop
+2:04-2:36s: 3rd loop
+2:44s-3:00s: end of song
+
+Name: Vengeance is Fear
