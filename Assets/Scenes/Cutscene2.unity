@@ -461,7 +461,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.2682154, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -627,7 +627,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.2682154, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -817,88 +817,78 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lines:
-  - Surely you never thought you'd get away with it right?
-  - 'When something like this happens, I always ask myself:'
-  - Why? What could drive a man to this state of moral decay.
-  - She took it all... She took everything...
-  - My money, my kids...
-  - Even my dignity detective. Do you know how that feels?
-  - '*grunts*'
-  - Mr <Insert Name>, I dont believe your actions were one of a sane individual.
-  - Such a violent act. Only a truly disturbed mind could commit something of the
-    sort.
-  - It was all rigged from the beggining detective. That's the truth. That trial
-    was a joke.
-  - A travesty of justice.
-  - '*chuckles*'
-  - A farce if you will.
-  - The final humiliation of a man whose reputation was dragged through the dirt
-    by the media.
-  - I wouldn't call it that.
-  - 'You are a celebrity. You have millions of fans. '
-  - Even if your ex-wife took your kids and half your fortune, you could've lived
-    in confortable and quiet luxury for the rest of your life.
-  - So why the outburst?
-  - Why murder you ex-wife in cold blood in the middle of the courtoom.
-  - I suspect there is more to it.
-  - We will have to delve into your psyche.
-  - You know.
-  - ' In high school I was regarded as an highly inteligent and sociable pupil. Leagues
-    ahead of my classmates.'
-  - In time, I will discover what makes you tick.
-  - But for the time being, let's go back. Tell me you version of events.
+  - So that's what you think happened Mr Thoroughbred.
+  - Such delusions are commonly found in people who have gone through extreme trauma.
+  - Have you ever experienced any such events in your life?
+  - What the fuck are you? A psychologist?
+  - Im just trying to figure out how we got here.
+  - You won't get anything from me.
+  - I was wronged and I acted.
+  - 
+  - I don't think that's the case Max.
+  - Can I call you Max?
+  - Sure.
+  - I've read your file.
+  - About 8 years back. There was an incident in the Cop Killa Records office's.
+  - The details were buried of course but rumours circulated and got to us.
+  - 'Of course, we never acted on it, no one in the label spoke about it. They weren''t
+    gonna kill their golden goose. '
+  - Does this ring a bell?
+  - 
+  - All I took...
+  - Was some bad acid man.
+  - Nothing more.
+  - So it's all bullshit?
+  - 
+  - Well. Not all of it. I'll tell you what happened.
   persons:
-  - '[JESSE ANIME - DETECTIVE]'
-  - '[JESSE]'
-  - '[JESSE]'
-  - '[FAMOUS RAPPER]'
-  - '[FAMOUS RAPPER]'
-  - '[FAMOUS RAPPER]'
   - '[JESSE]'
   - '[JESSE]'
   - '[JESSE]'
-  - '[FAMOUS RAPPER]'
-  - '[FAMOUS RAPPER]'
-  - '[FAMOUS RAPPER]'
-  - '[FAMOUS RAPPER]'
-  - '[FAMOUS RAPPER]'
+  - '[MAX]'
+  - '[JESSE]'
+  - '[MAX]'
+  - '[MAX]'
+  - 
+  - '[JESSE]'
+  - '[JESSE]'
+  - '[MAX]'
   - '[JESSE]'
   - '[JESSE]'
   - '[JESSE]'
   - '[JESSE]'
   - '[JESSE]'
+  - 
+  - '[MAX]'
   - '[JESSE]'
   - '[JESSE]'
   - '[JESSE]'
-  - '[JESSE]'
-  - '[JESSE]'
+  - 
   - '[JESSE]'
   lineDurations:
   - 5
+  - 7
   - 5
   - 4
   - 5
-  - 2
+  - 5
+  - 5
+  - 5
   - 5
   - 2
-  - 7
-  - 7
-  - 7
   - 2
   - 2
-  - 2
-  - 7
-  - 2
-  - 5
-  - 7
+  - 6
+  - 6
+  - 6
+  - 6
+  - 3
   - 2
   - 5
   - 3
   - 3
   - 2
   - 7
-  - 5
-  - 5
   i: 0
   isLineOnScreen: 0
   dialogArea: {fileID: 710456488}
@@ -1571,7 +1561,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.2682154, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1736,7 +1726,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.2682154, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2156,7 +2146,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.2682154, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3426,7 +3416,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.2682154, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3625,7 +3615,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.2682154, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3696,7 +3686,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.2682154, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3834,7 +3824,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.2682154, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4000,7 +3990,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.2682154, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4071,7 +4061,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.2682154, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4237,7 +4227,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.2682154, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4308,7 +4298,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.2682154, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
