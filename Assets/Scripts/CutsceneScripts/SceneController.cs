@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class SceneController : MonoBehaviour
     public float[] lineDurations;
     public int i = 0;
     public bool isLineOnScreen = false;
+
+    public int nextScene;
 
     public TMPro.TMP_Text dialogArea;
     public TMPro.TMP_Text personTalkingArea;
@@ -28,6 +31,9 @@ public class SceneController : MonoBehaviour
         {
             StartCoroutine(ShowLine(lines[i], lineDurations[i]));
         }
+
+        if (i == lines.Length && !isLineOnScreen)
+            SceneManager.LoadScene(nextScene);
 
     }
 

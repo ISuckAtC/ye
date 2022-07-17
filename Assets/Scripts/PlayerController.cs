@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private bool skipFirstFrame = true;
 
+    private float mouseSensitivity;
+
     private Vector3 meleeRotation, meleePosition, rangeRotation, rangePosition;
 
     public List<Keydoor.DoorColor> keys = new List<Keydoor.DoorColor>();
@@ -37,6 +39,11 @@ public class PlayerController : MonoBehaviour
     bool dying = false;
     float eyesApperture;
     bool invincible = false;
+
+    void Awake()
+    {
+        mouseSensitivity = PlayerPrefs.GetFloat("sensitivity", 2);
+    }
 
     public void TakeDamage(int damage)
     {
@@ -54,7 +61,7 @@ public class PlayerController : MonoBehaviour
             }
             eyeVignetteMtrl.SetFloat("_Exponential", (100 - health) / 200);
         }
-        
+
     }
 
     public void GainHealth()
@@ -89,7 +96,7 @@ public class PlayerController : MonoBehaviour
             weaponMelee.transform.localPosition = meleePosition;
             weaponMelee.transform.localEulerAngles = meleeRotation;
 
-            
+
         }
         else if (weapon.tag == "WeaponRange")
         {
@@ -111,7 +118,7 @@ public class PlayerController : MonoBehaviour
             weaponRange.transform.localPosition = rangePosition;
             weaponRange.transform.localEulerAngles = rangeRotation;
 
-            
+
         }
     }
 
@@ -207,7 +214,7 @@ public class PlayerController : MonoBehaviour
                 c = 0;
             }
         }
-        
+
 
         if (skipFirstFrame)
         {
@@ -215,7 +222,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Vector2 mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+            Vector2 mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")) * mouseSensitivity;
 
             transform.Rotate(Vector3.up, mouseInput.x * turnSpeed.x * Time.deltaTime);
             head.transform.Rotate(Vector3.right, -mouseInput.y * turnSpeed.y * Time.deltaTime);
@@ -239,7 +246,7 @@ public class PlayerController : MonoBehaviour
         {
             if (targetFOV != 60)
             {
-                targetFOV = 60;   
+                targetFOV = 60;
             }
 
             cameraBopTarget = Vector3.zero;

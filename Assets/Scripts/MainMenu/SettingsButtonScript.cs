@@ -10,7 +10,7 @@ public class SettingsButtonScript : MonoBehaviour
 
     public void GoToSettings()
     {
-        gameObject.SetActive(false);
+        mainMenu.gameObject.SetActive(false);
         settingsMenu.gameObject.SetActive(true);
     
     }
