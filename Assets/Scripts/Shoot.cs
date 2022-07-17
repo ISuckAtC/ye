@@ -96,15 +96,12 @@ public class Shoot : MonoBehaviour
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
-            Debug.Log("bbb");
+
             if (hit.transform.tag == "Target" && hit.transform != null)
             {
-                Debug.Log(hit.rigidbody);
                 if (hit.rigidbody != null)
                 {
                     hit.rigidbody.AddForce(-hit.normal * impactForce, ForceMode.VelocityChange);
-                    Debug.Log("aaa");
-                    Debug.Log(hit.collider.gameObject.name);
 
                     hit.collider.gameObject.GetComponent<Renderer>().material.SetFloat("_EnemyHit", 1);
                     turnToRed = true;

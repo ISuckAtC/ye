@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class SceneController : MonoBehaviour
 {
-    public Camera[] cameras;
-    public float[] cameraDurations;
+    public string[] lines;
+    public string[] persons;
+
+    public float[] lineDurations;
     public int i = 0;
-    public bool isRunning = false;
+    public bool isLineOnScreen = false;
+
+    public TMPro.TMP_Text dialogArea;
+    public TMPro.TMP_Text personTalkingArea;
 
 
     void Start()
     {
-
 
 
     }
@@ -20,27 +24,22 @@ public class SceneController : MonoBehaviour
     // Update is called once per frame    // Update is called once per frame
     void Update()
     {
-        if (isRunning == false && i < cameras.Length)
+        if (isLineOnScreen == false && i < lines.Length)
         {
-            StartCoroutine(UseCamera(cameras[i], cameraDurations[i], cameras.Length));
+            StartCoroutine(ShowLine(lines[i], lineDurations[i]));
         }
 
     }
 
 
-    IEnumerator UseCamera(Camera camera, float duration, int maxLenght)
+    IEnumerator ShowLine(string line, float duration)
     {
-        camera.enabled = true;
-        isRunning = true;
+        isLineOnScreen = true;
+        dialogArea.text = lines[i];
+        personTalkingArea.text = persons[i];
         yield return new WaitForSeconds(duration);
-        if (i != cameras.Length - 1)
-        {
-            camera.enabled = false;
-            yield return new WaitForSeconds(0.05f);
-            cameras[i + 1].enabled = true;
-        }
         i++;
-        isRunning = false;
+        isLineOnScreen = false;
     }
 
 }
