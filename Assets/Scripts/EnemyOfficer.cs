@@ -64,7 +64,7 @@ public class EnemyOfficer : Enemy
             Attack();
         }
 
-        animator.SetBool("isWalking", true);
+        
 
         if (didAttack)
         {
@@ -99,6 +99,10 @@ public class EnemyOfficer : Enemy
 
     void Patrol()
     {
+        animator.speed = 1f;
+        animator.SetBool("isShooting", false);
+        animator.SetBool("isWalking", true);
+
         if (!walkPointSet)
             RandomPatrol();
 
@@ -133,19 +137,24 @@ public class EnemyOfficer : Enemy
 
     private void Chase()
     {
+        animator.speed = 1f;
+        animator.SetBool("isShooting", false);
+        animator.SetBool("isWalking", true);
         agent.isStopped = false;
         agent.SetDestination(player.transform.position);
     }
 
     private void Attack()
     {
-
-        
+        animator.speed = 0.6f;
+        animator.SetBool("isWalking", false);
+        animator.SetBool("isShooting", true);
 
         agent.SetDestination(transform.position);
 
-        transform.LookAt(player.transform.position);
-
+        Vector3 lookVector = player.transform.position - transform.position;
+        lookVector.Normalize();
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookVector), 10f * Time.deltaTime);
 
         if (!didAttack)
         {
