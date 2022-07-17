@@ -397,7 +397,7 @@ MonoBehaviour:
   - My money, my kids...
   - Even my dignity detective. Do you know how that feels?
   - '*grunts*'
-  - Mr <Insert Name>, I dont believe your actions were one of a sane individual.
+  - Mr <Insert Name>, I dont believe your actions were ones of a sane individual.
   - Such a violent act. Only a truly disturbed mind could commit something of the
     sort.
   - It was all rigged from the beggining detective. That's the truth. That trial
@@ -419,7 +419,7 @@ MonoBehaviour:
   - ' In high school I was regarded as an highly inteligent and sociable pupil. Leagues
     ahead of my classmates.'
   - In time, I will discover what makes you tick.
-  - But for the time being, let's go back. Tell me you version of events.
+  - But for the time being, let's go back. Tell me your version of events.
   persons:
   - '[JESSE ANIME - DETECTIVE]'
   - '[JESSE]'
@@ -885,7 +885,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.4751848, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -956,7 +956,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.4751848, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1096,7 +1096,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.4751848, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1261,7 +1261,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.4751848, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1860,7 +1860,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.4751848, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2394,7 +2394,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.4751848, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2465,7 +2465,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.4751848, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2536,7 +2536,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.4751848, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2590,7 +2590,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6e33d6dbc6de5aa43994e550741ea88a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.661
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3020,7 +3020,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.4751848, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3253,7 +3253,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.4751848, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4374,7 +4374,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.625132, y: 1}
+    m_SensorSize: {x: 1.4751848, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
