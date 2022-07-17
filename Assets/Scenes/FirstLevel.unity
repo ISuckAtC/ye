@@ -24482,6 +24482,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4291953506882247425, guid: a645722b35cd9694ebaa5984e0e3695d, type: 3}
+      propertyPath: audioController
+      value: 
+      objectReference: {fileID: 1197516998}
     - target: {fileID: 4291953506882247441, guid: a645722b35cd9694ebaa5984e0e3695d, type: 3}
       propertyPath: m_RootOrder
       value: 2
