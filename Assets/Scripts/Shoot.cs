@@ -141,6 +141,12 @@ public class Shoot : MonoBehaviour
 
             }
 
+            Keydoor door;
+            if (hit.transform.TryGetComponent<Keydoor>(out door))
+            {
+                door.AttemptOpen();
+            }
+
             GameObject impactObjGameObject = Instantiate(impactEffectObj, hit.point, Quaternion.LookRotation(Vector3.Reflect(cam.transform.forward, hit.normal)));
 
             ParticleSystem.MainModule mainModule = impactObjGameObject.GetComponent<ParticleSystem>().main;

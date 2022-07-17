@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health;
+    public GameObject spawnOnDeath;
 
     public virtual bool TakeDamage(int damage)
     {
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
+        Instantiate(spawnOnDeath, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

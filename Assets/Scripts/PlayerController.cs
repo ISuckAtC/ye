@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 meleeRotation, meleePosition, rangeRotation, rangePosition;
 
+    public List<Keydoor.DoorColor> keys = new List<Keydoor.DoorColor>();
+
     public Material eyeVignetteMtrl;
     public void TakeDamage(int damage)
     {
