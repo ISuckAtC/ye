@@ -71,7 +71,6 @@ public class EnemyOfficer : Enemy
             Collider[] hitEnemies = Physics.OverlapSphere(bulletClone.transform.position, ballRadius, enemyLayers);
             foreach (Collider pl in hitEnemies)
             {
-                Debug.Log(pl.attachedRigidbody.name);
                 //Check if it has rigidBody
                 if (pl.attachedRigidbody != null)
                 {
@@ -80,7 +79,7 @@ public class EnemyOfficer : Enemy
                     {
                         if (help == 0)
                         {
-                            pl.GetComponent<PlayerController>().health -= 10;
+                            pl.GetComponent<PlayerController>().TakeDamage(10);
                             help = 1;
                         }
 
