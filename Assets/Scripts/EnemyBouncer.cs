@@ -25,24 +25,28 @@ public class EnemyBouncer : Enemy
     //Check
     public float sightRange, attackRange;
     public bool inSightRange, inAttackRange;
+    public int punchDamage;
 
     public float dashSpeed;
     public float dashTime;
     Vector3 rSphere;
     int help = 0;
     float dashMethTime = 3f;
+    private Animator animator;
 
     public void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player");
         pController = player.GetComponent<PlayerController>();
+        animator = GetComponent<Animator>();
 
         agent.speed = speed;
     }
 
     public void Update()
     {
+
         inSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
         inAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
 
@@ -70,6 +74,10 @@ public class EnemyBouncer : Enemy
 
     void Patrol()
     {
+        animator.speed = 1f;
+        animator.SetBool("isPunching", false);
+        animator.SetBool("isWalking", true);
+
         CancelInvoke(nameof(Dash));
         if (!walkPointSet)
             RandomPatrol();
@@ -106,6 +114,10 @@ public class EnemyBouncer : Enemy
 
     private void Chase()
     {
+        animator.speed = 1f;
+        animator.SetBool("isPunching", false);
+        animator.SetBool("isWalking", true);
+
         agent.isStopped = false;
         agent.SetDestination(player.transform.position);
 
@@ -151,6 +163,9 @@ public class EnemyBouncer : Enemy
 
     private void Attack()
     {
+        animator.speed = 1f;
+        animator.SetBool("isPunching", true);
+        animator.SetBool("isWalking", false);
 
         CancelInvoke(nameof(Dash));
         agent.SetDestination(transform.position);
@@ -163,7 +178,7 @@ public class EnemyBouncer : Enemy
         if (!didAttack)
         {
             //ATTACK
-            pController.TakeDamage(10);
+            pController.TakeDamage(punchDamage);
 
             didAttack = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

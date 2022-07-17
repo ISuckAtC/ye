@@ -50,7 +50,7 @@ public class Melee : MonoBehaviour
                 // Do the enemy check separately to add force to other things when hit by a hammer
                 if (LayerMask.LayerToName(enemy.gameObject.layer) == "Enemy")
                 {
-                    bool isEnemyDead = enemy.gameObject.GetComponent<Enemy>().TakeDamage(damageValue);
+                    bool isEnemyDead = enemy.gameObject.GetComponentInParent<Enemy>().TakeDamage(damageValue);
                     if (isEnemyDead)
                     {
                         attackRate = 2f;

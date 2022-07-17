@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Skin 1
+  m_Name: Hair 2
   m_Shader: {fileID: 4800000, guid: 84bc9853f02cf564a88201d8ea910db8, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -78,6 +78,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.4810881, g: 0.39027452, b: 0.22303984, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.5189959, g: 0.5083041, b: 0.5296871, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
