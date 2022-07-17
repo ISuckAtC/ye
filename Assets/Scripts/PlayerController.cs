@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     float gainHealthTimer = 5f;
     float initialHealthTimer;
     int c = 0;
+    bool dying = false;
 
     public void TakeDamage(int damage)
     {
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("YOU ARE DEAD!");
+            dying = true;
             speed = 0;
         }
         eyeVignetteMtrl.SetFloat("_Exponential", (100 - health) / 200);
@@ -164,9 +166,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log((int)gainHealthTimer);
-
-
 
         if (health < 100)
         {
@@ -245,27 +244,6 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = new Vector3(movement.x * speed, rb.velocity.y, movement.z * speed);
 
-        //if (bulletCooldownTimer <= 0)
-        //{
-        //    if (Input.GetMouseButton(0) && currentAmmo > 0)
-        //    {
-        //        bulletCooldownTimer = bulletCooldown;
-        //        currentAmmo--;
-        //
-        //        Vector3 direction = bulletSpawnPoint.transform.position - head.transform.position;
-        //
-        //        GameObject bulletClone = Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
-        //
-        //        bulletClone.transform.forward = direction;
-        //
-        //        bulletClone.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.transform.forward * bulletSpeed;
-        //        Destroy(bulletClone, bulletLifeTime);
-        //    }
-        //}
-        //else
-        //{
-        //    bulletCooldownTimer -= Time.deltaTime;
-        //}
 
         if (Input.GetKeyDown(KeyCode.X))
         {
