@@ -44,6 +44,7 @@ public class AudioController : MonoBehaviour
     }
 
     //on this clipindices you pass indices from the clipsLibrary;
+    //TODO ALLOW A INTRO CLIP FOR NEW LOOOP AND OUTRO CLIP FOR PREVIOUS LOOOOP
     public void defineNewLoops(int[] clipIndices)
     {
         clips = new AudioClip[clipIndices.Length];

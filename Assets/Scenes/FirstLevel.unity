@@ -18514,11 +18514,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad60935842acc2041aa2d41c60a8c0d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clipsLibrary: []
-  clips:
-  - {fileID: 8300000, guid: af4b68bc58776a14fbba497c9d5a6174, type: 3}
+  clipsLibrary:
+  - {fileID: 8300000, guid: 7e80ae0461a9d8e47bb08e9feef5b0f2, type: 3}
   - {fileID: 8300000, guid: f029b3a31fc5e6449b4cf2162a6fcc9a, type: 3}
-  initialClip: {fileID: 8300000, guid: 8b608f6897246e44785069df9c466951, type: 3}
+  - {fileID: 8300000, guid: 4f430633abcacaa42b1aa673406526f7, type: 3}
+  - {fileID: 8300000, guid: 490f266426e49a549bc1903c4873022b, type: 3}
+  - {fileID: 8300000, guid: 8b608f6897246e44785069df9c466951, type: 3}
+  - {fileID: 8300000, guid: 9578543e6d39a124b82ddac1ca6cf27a, type: 3}
+  - {fileID: 8300000, guid: af4b68bc58776a14fbba497c9d5a6174, type: 3}
+  - {fileID: 8300000, guid: 3833753f5d290cb48ac03576cbed71b3, type: 3}
+  - {fileID: 8300000, guid: 1984b4ff4fece80448c02f00abff6d72, type: 3}
+  - {fileID: 8300000, guid: 884166c78d79d624f93dd752fd29f954, type: 3}
+  clips:
+  - {fileID: 8300000, guid: 884166c78d79d624f93dd752fd29f954, type: 3}
+  initialClip: {fileID: 8300000, guid: 884166c78d79d624f93dd752fd29f954, type: 3}
   audioSource: {fileID: 1117752645}
   state: introducing
   i: 0
