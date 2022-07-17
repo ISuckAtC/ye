@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
                             t.GetComponent<EnemyBouncer>().enabled = true;
                             t.GetComponent<Enemy>().invincible = false;
                             meleeActive = true;
+
                         }
                     }
                 }

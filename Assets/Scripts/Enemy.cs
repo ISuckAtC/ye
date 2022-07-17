@@ -6,12 +6,17 @@ public class Enemy : MonoBehaviour
 {
     public int health;
     public GameObject spawnOnDeath;
+    public bool invincible = false;
 
     public virtual bool TakeDamage(int damage)
     {
 
+        if (!invincible)
+        {
+            health -= damage;
+        }
+        
 
-        health -= damage;
         if (health <= 0)
         {
             Die();
