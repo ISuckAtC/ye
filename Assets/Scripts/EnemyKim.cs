@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyKim : MonoBehaviour
+public class EnemyKim : Enemy
 {
     public enum States
     {
@@ -32,6 +32,7 @@ public class EnemyKim : MonoBehaviour
     public float fartSprayRadius;
     public float fartProjectileCount;
     public float fartProjectileLifetime;
+    public float fartProjectileSpeedMin, fartProjectileSpeedMax;
 
     public float minionSpawnCount;
     // Start is called before the first frame update
@@ -106,7 +107,7 @@ public class EnemyKim : MonoBehaviour
                         {
                             Vector3 fartDirection = Quaternion.Euler(Random.Range(-fartSprayRadius, fartSprayRadius), Random.Range(-fartSprayRadius, fartSprayRadius), 0) * directionToPlayer;
                             GameObject fart = Instantiate(fartProjectile, transform.position, Quaternion.identity);
-                            fart.GetComponent<Rigidbody>().AddForce(fartDirection, ForceMode.VelocityChange);
+                            fart.GetComponent<Rigidbody>().AddForce(fartDirection * Random.Range(fartProjectileSpeedMin, fartProjectileSpeedMax), ForceMode.VelocityChange);
                             Destroy(fart, fartProjectileLifetime);
                         }
 

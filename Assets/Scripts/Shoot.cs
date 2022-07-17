@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Shoot : MonoBehaviour
 {
-    public float range = 100f, dmg = 10f, impactForce = 1f, fireRate = 15f, reloadTime = 1f;
+    public float range = 100f, impactForce = 1f, fireRate = 15f, reloadTime = 1f;
+    public int damage = 10;
     public int maxAmmo = 10;
     private int currentAmmo;
     private bool isReloading = false;
@@ -91,7 +92,7 @@ public class Shoot : MonoBehaviour
             }
         }
 
-        
+
     }
 
     void Fire()
@@ -104,31 +105,24 @@ public class Shoot : MonoBehaviour
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
-            
-            if (hit.transform.tag == "Target" && hit.transform != null)
+            if (hit.transform.tag == "Target")
             {
-                if (hit.rigidbody != null)
-                {
-                    
-                    hit.rigidbody.AddForce(-hit.normal * impactForce, ForceMode.VelocityChange);
+                hit.rigidbody.AddForce(-hit.normal * impactForce, ForceMode.VelocityChange);
 
-                    hit.collider.gameObject.GetComponent<Renderer>().material.SetFloat("_EnemyHit", 1);
-                    
-                    
-                    // Do the enemy check separately to add force to other things when hit by a bullet
-                    if (LayerMask.LayerToName(hit.rigidbody.gameObject.layer) == "Enemy")
-                    {
-                        
-                        bool isEnemyDead = hit.rigidbody.gameObject.GetComponentInParent<Enemy>().TakeDamage(Mathf.RoundToInt(dmg));
-                        if (isEnemyDead)
-                            currentAmmo = maxAmmo;
+                hit.collider.gameObject.GetComponent<Renderer>().material.SetFloat("_EnemyHit", 1);
+            }
+            Enemy enemy;
+            if (hit.transform.TryGetComponent<Enemy>(out enemy))
+            {
 
-                        hitMaterial = hit.collider.gameObject.GetComponent<Renderer>().material;
-                        turnToRed = true;
-                        changeColorNow = true;
+                bool isEnemyDead = hit.rigidbody.gameObject.GetComponentInParent<Enemy>().TakeDamage(damage);
+                if (isEnemyDead)
+                    currentAmmo = maxAmmo;
 
-                    }
-                }
+                hitMaterial = hit.collider.gameObject.GetComponent<Renderer>().material;
+                turnToRed = true;
+                changeColorNow = true;
+
             }
 
             GameObject impactObjGameObject = Instantiate(impactEffectObj, hit.point, Quaternion.LookRotation(Vector3.Reflect(cam.transform.forward, hit.normal)));
@@ -147,7 +141,7 @@ public class Shoot : MonoBehaviour
         Debug.Log("Reloading...");
 
         animator.SetBool("Reloading", true);
-        
+
 
         yield return new WaitForSeconds(reloadTime + 1.5f);
 

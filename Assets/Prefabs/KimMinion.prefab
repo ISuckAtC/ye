@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3059015034792047699}
   - component: {fileID: 3059015034792047700}
   - component: {fileID: -8513664538748617599}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: KimMinion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
