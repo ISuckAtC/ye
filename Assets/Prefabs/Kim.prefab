@@ -101,10 +101,12 @@ MonoBehaviour:
   fartCooldown: 3
   spawnCooldown: 5
   fartSprayRadius: 60
-  fartProjectileCount: 10
-  fartProjectileLifetime: 5
-  fartProjectileSpeedMin: 0
-  fartProjectileSpeedMax: 0
+  fartProjectileCount: 100
+  fartProjectileLifetime: 10
+  fartProjectileSpeedMin: 2
+  fartProjectileSpeedMax: 5
+  fartPushRange: 10
+  fartPushVerticalBias: 3
   minionSpawnCount: 3
 --- !u!136 &4361466183594700586
 CapsuleCollider:

@@ -22697,22 +22697,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4361466183594700589, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
-      propertyPath: fartProjectileCount
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4361466183594700589, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
-      propertyPath: fartProjectileLifetime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4361466183594700589, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
-      propertyPath: fartProjectileSpeedMax
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4361466183594700589, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
-      propertyPath: fartProjectileSpeedMin
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
 --- !u!1 &4366355335331672695

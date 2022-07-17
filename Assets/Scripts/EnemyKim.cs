@@ -34,6 +34,7 @@ public class EnemyKim : Enemy
     public float fartProjectileLifetime;
     public float fartProjectileSpeedMin, fartProjectileSpeedMax;
     public float fartPushRange;
+    public float fartPushMultiplier;
     public float fartPushVerticalBias;
 
     public float minionSpawnCount;
@@ -118,7 +119,7 @@ public class EnemyKim : Enemy
                         {
                             Vector3 direction = collider.transform.position - transform.position;
                             direction += new Vector3(0, fartPushVerticalBias, 0);
-                            collider.GetComponent<Rigidbody>().AddForce(direction.normalized * (fartPushRange - direction.magnitude), ForceMode.VelocityChange);
+                            collider.GetComponent<Rigidbody>().AddForce(direction.normalized * (fartPushRange - direction.magnitude) * fartPushMultiplier, ForceMode.VelocityChange);
                         }
 
 
