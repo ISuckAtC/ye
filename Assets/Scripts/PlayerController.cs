@@ -40,10 +40,7 @@ public class PlayerController : MonoBehaviour
     float eyesApperture;
     bool invincible = false;
 
-    void Awake()
-    {
-        mouseSensitivity = PlayerPrefs.GetFloat("sensitivity", 2);
-    }
+    public GameObject audioController;
 
     public void TakeDamage(int damage)
     {
@@ -156,6 +153,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mouseSensitivity = PlayerPrefs.GetFloat("sensitivity", 1);
         initialHealthTimer = gainHealthTimer;
         eyeVignetteMtrl.SetFloat("_Exponential", 0);
         rb = GetComponent<Rigidbody>();
@@ -281,6 +279,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.X))
         {
+            audioController.GetComponent<AudioController>().defineNewLoops(new int[] { 1, 3, 4, });
             RaycastHit hit;
 
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactRange))
