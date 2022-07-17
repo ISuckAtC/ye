@@ -64,7 +64,8 @@ public class EnemyKim : MonoBehaviour
 
 
 
-        if (player)
+
+        if (state == States.Chase)
         {
             if (Vector3.Distance(transform.position, player.transform.position) > sightRange)
             {
@@ -77,20 +78,8 @@ public class EnemyKim : MonoBehaviour
                 agent.SetDestination(player.transform.position);
                 agent.isStopped = false;
             }
-        }
-        else
-        {
-            Collider[] overlaps = Physics.OverlapSphere(transform.position, sightRange, LayerMask.GetMask("Player"));
-            if (overlaps.Length > 0)
-            {
-                player = overlaps[0].gameObject;
-                state = States.Chase;
-            }
-        }
 
-        if (state == States.Chase)
-        {
-            if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
+            if (player && Vector3.Distance(transform.position, player.transform.position) <= attackRange)
             {
                 state = States.Attack;
                 agent.isStopped = true;
@@ -98,6 +87,7 @@ public class EnemyKim : MonoBehaviour
                 switch (rand)
                 {
                     case 0:
+                        Debug.Log("Kim klap attakk");
                         player.GetComponent<PlayerController>().TakeDamage(clapDamage);
                         
 
@@ -108,6 +98,7 @@ public class EnemyKim : MonoBehaviour
 
                         break;
                     case 1:
+                        Debug.Log("Kim brapp");
                         Vector3 directionToPlayer = player.transform.position - transform.position;
                         directionToPlayer = directionToPlayer.normalized;
 
@@ -128,6 +119,7 @@ public class EnemyKim : MonoBehaviour
 
                         break;
                     case 2:
+                        Debug.Log("Kim orbiter raid");
                         for (int i = 0; i < minionSpawnCount; i++)
                         {
                             GameObject spawn = Instantiate(minion, transform.position, Quaternion.identity);
@@ -142,6 +134,15 @@ public class EnemyKim : MonoBehaviour
                         
                         break;
                 }
+            }
+        }
+        else
+        {
+            Collider[] overlaps = Physics.OverlapSphere(transform.position, sightRange, LayerMask.GetMask("Player"));
+            if (overlaps.Length > 0)
+            {
+                player = overlaps[0].gameObject;
+                state = States.Chase;
             }
         }
         
