@@ -260,7 +260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 158}
+  m_AnchoredPosition: {x: 0, y: 207}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &182681526
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[FAMOUS RAPPER]'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 185527693}
   - component: {fileID: 185527692}
   m_Layer: 0
-  m_Name: cONTROOLER
+  m_Name: SceneController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -391,18 +391,86 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - Surely you never thought you'd get away with it right?
-  - 'When something like this happens, I always have to ask this:'
-  - Why?
+  - 'When something like this happens, I always ask myself:'
+  - Why? What could drive a man to this state of moral decay.
   - She took it all... She took everything...
+  - My money, my kids...
+  - Even my dignity detective. Do you know how that feels?
+  - '*grunts*'
+  - Mr <Insert Name>, I dont believe your actions were one of a sane individual.
+  - Such a violent act. Only a truly disturbed mind could commit something of the
+    sort.
+  - It was all rigged from the beggining detective. That's the truth. That trial
+    was a joke.
+  - A travesty of justice.
+  - '*chuckles*'
+  - A farce if you will.
+  - The final humiliation of a man whose reputation was dragged through the dirt
+    by the media.
+  - I wouldn't call it that.
+  - 'You are a celebrity. You have millions of fans. '
+  - Even if your ex-wife took your kids and half your fortune, you could've lived
+    in confortable and quiet luxury for the rest of your life.
+  - So why the outburst?
+  - Why murder you ex-wife in cold blood in the middle of the courtoom.
+  - I suspect there is more to it.
+  - We will have to delve into your psyche.
+  - You know.
+  - ' In high school I was regarded as an highly inteligent and sociable pupil. Leagues
+    ahead of my classmates.'
+  - In time, I will discover what makes you tick.
+  - But for the time being, let's go back. Tell me you version of events.
   persons:
   - '[JESSE ANIME - DETECTIVE]'
   - '[JESSE]'
   - '[JESSE]'
   - '[FAMOUS RAPPER]'
+  - '[FAMOUS RAPPER]'
+  - '[FAMOUS RAPPER]'
+  - '[JESSE]'
+  - '[JESSE]'
+  - '[JESSE]'
+  - '[FAMOUS RAPPER]'
+  - '[FAMOUS RAPPER]'
+  - '[FAMOUS RAPPER]'
+  - '[FAMOUS RAPPER]'
+  - '[FAMOUS RAPPER]'
+  - '[JESSE]'
+  - '[JESSE]'
+  - '[JESSE]'
+  - '[JESSE]'
+  - '[JESSE]'
+  - '[JESSE]'
+  - '[JESSE]'
+  - '[JESSE]'
+  - '[JESSE]'
+  - '[JESSE]'
+  - '[JESSE]'
   lineDurations:
   - 5
   - 5
+  - 4
+  - 5
   - 2
+  - 5
+  - 2
+  - 5
+  - 5
+  - 5
+  - 2
+  - 2
+  - 2
+  - 5
+  - 2
+  - 5
+  - 5
+  - 2
+  - 5
+  - 3
+  - 5
+  - 2
+  - 5
+  - 5
   - 5
   i: 0
   isLineOnScreen: 0
@@ -792,7 +860,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8526682, y: 1}
+    m_SensorSize: {x: 1.4953597, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -957,7 +1025,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8526682, y: 1}
+    m_SensorSize: {x: 1.4953597, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1017,7 +1085,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 99}
+  m_AnchoredPosition: {x: 0, y: 148}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &710456487
@@ -1048,7 +1116,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Moonmoon, we live in a society ok?
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1418,7 +1486,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8526682, y: 1}
+    m_SensorSize: {x: 1.4953597, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1857,7 +1925,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8526682, y: 1}
+    m_SensorSize: {x: 1.4953597, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1928,7 +1996,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8526682, y: 1}
+    m_SensorSize: {x: 1.4953597, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2189,7 +2257,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8526682, y: 1}
+    m_SensorSize: {x: 1.4953597, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2260,7 +2328,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8526682, y: 1}
+    m_SensorSize: {x: 1.4953597, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2945,7 +3013,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8526682, y: 1}
+    m_SensorSize: {x: 1.4953597, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
