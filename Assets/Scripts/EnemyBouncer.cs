@@ -140,7 +140,7 @@ public class EnemyBouncer : Enemy
         if (!didAttack)
         {
             //ATTACK
-            pController.health -= 10;
+            pController.TakeDamage(10);
 
             didAttack = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

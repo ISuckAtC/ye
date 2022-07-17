@@ -31,12 +31,14 @@ public class PlayerController : MonoBehaviour
     public Material eyeVignetteMtrl;
     public void TakeDamage(int damage)
     {
+
         health -= damage;
         if (health <= 0)
         {
             Debug.Log("YOU ARE DEAD!");
             speed = 0;
         }
+        eyeVignetteMtrl.SetFloat("_Exponential", (100 - health) / 200);
     }
 
     
@@ -123,6 +125,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        eyeVignetteMtrl.SetFloat("_Exponential", 0);
         rb = GetComponent<Rigidbody>();
         mr = GetComponent<MeshRenderer>();
 
@@ -145,8 +148,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //eyeVignetteMtrl.SetFloat("_Exponential", (100 - health) / 200);
 
 
         if (skipFirstFrame)
@@ -262,4 +263,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+
 }
