@@ -36,6 +36,8 @@ public class EnemyHugger : Enemy
     bool checkGrab;
     float grabCooldown = 0f;
 
+    private Animator animator;
+
     private void OnDestroy()
     {
         CancelInvoke(nameof(ResetAttack));
@@ -48,6 +50,8 @@ public class EnemyHugger : Enemy
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player");
         pController = player.GetComponent<PlayerController>();
+        animator = GetComponent<Animator>();
+
 
         agent.speed = speed;
         initialSpeed = pController.speed;
@@ -98,6 +102,11 @@ public class EnemyHugger : Enemy
 
     void Patrol()
     {
+
+        animator.speed = 1f;
+        animator.SetBool("isGrabbing", false);
+        animator.SetBool("isWalking", true);
+
         if (!walkPointSet)
             RandomPatrol();
 
@@ -132,6 +141,10 @@ public class EnemyHugger : Enemy
 
     private void Chase()
     {
+        animator.speed = 1f;
+        animator.SetBool("isGrabbing", false);
+        animator.SetBool("isWalking", true);
+
         agent.isStopped = false;
         agent.SetDestination(player.transform.position);
         
@@ -140,7 +153,9 @@ public class EnemyHugger : Enemy
     private void Attack()
     {
 
-        
+        animator.speed = 1f;
+        animator.SetBool("isGrabbing", true);
+        animator.SetBool("isWalking", false);
 
         if (grabCooldown <= 0)
         {
@@ -148,13 +163,15 @@ public class EnemyHugger : Enemy
 
             agent.SetDestination(transform.position);
 
-            transform.LookAt(player.transform.position);
+            Vector3 lookVector = player.transform.position - transform.position;
+            lookVector.Normalize();
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookVector), 10f * Time.deltaTime);
 
 
             if (!didAttack)
             {
 
-                if (Vector3.Distance(gameObject.transform.position, player.transform.position) < 2)
+                if (Vector3.Distance(gameObject.transform.position, player.transform.position) < attackRange + 1.5f)
                 {
 
                     //GRAB PLAYER
