@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 meleeRotation, meleePosition, rangeRotation, rangePosition;
 
+    public Material eyeVignetteMtrl;
     
 
     public void PickupWeapon(GameObject weapon, Vector3 position, Quaternion rotation)
@@ -134,6 +135,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        eyeVignetteMtrl.SetFloat("_Exponential", (100 - health) / 200);
+
 
         if (skipFirstFrame)
         {
