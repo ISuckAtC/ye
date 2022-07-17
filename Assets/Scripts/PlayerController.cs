@@ -29,6 +29,16 @@ public class PlayerController : MonoBehaviour
     private Vector3 meleeRotation, meleePosition, rangeRotation, rangePosition;
 
     public Material eyeVignetteMtrl;
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Debug.Log("YOU ARE DEAD!");
+            speed = 0;
+        }
+    }
+
     
 
     public void PickupWeapon(GameObject weapon, Vector3 position, Quaternion rotation)
