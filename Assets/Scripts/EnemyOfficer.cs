@@ -33,10 +33,12 @@ public class EnemyOfficer : Enemy
     public float ballRadius;
     private GameObject bulletClone;
     int help = 0;
+    private Animator animator;
 
     public void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         player = GameObject.Find("Player");
 
         agent.speed = speed;
@@ -62,6 +64,7 @@ public class EnemyOfficer : Enemy
             Attack();
         }
 
+        animator.SetBool("isWalking", true);
 
         if (didAttack)
         {

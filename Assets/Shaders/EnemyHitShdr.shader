@@ -55,8 +55,8 @@ Shader "Custom/EnemyHitShdr"
             }
             else
             {
-                c.g = _GreenFloat;
-                c.b = _BlueFloat;
+                c.g = c.g + -_GreenFloat;
+                c.b = c.b + -_BlueFloat;
                 o.Albedo = c.rgb;
             }
 
