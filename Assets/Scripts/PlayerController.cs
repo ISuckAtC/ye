@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public float interactRange;
@@ -35,19 +35,26 @@ public class PlayerController : MonoBehaviour
     float initialHealthTimer;
     int c = 0;
     bool dying = false;
+    float eyesApperture;
+    bool invincible = false;
 
     public void TakeDamage(int damage)
     {
-        c++;
-        gainHealthTimer = initialHealthTimer + c;
-        health -= damage;
-        if (health <= 0)
+        if (!invincible)
         {
-            Debug.Log("YOU ARE DEAD!");
-            dying = true;
-            speed = 0;
+            c++;
+            gainHealthTimer = initialHealthTimer + c;
+            health -= damage;
+            if (health <= 0)
+            {
+                Debug.Log("YOU ARE DEAD!");
+                dying = true;
+                speed = 0;
+                eyesApperture = (100 - health) / 200;
+            }
+            eyeVignetteMtrl.SetFloat("_Exponential", (100 - health) / 200);
         }
-        eyeVignetteMtrl.SetFloat("_Exponential", (100 - health) / 200);
+        
     }
 
     public void GainHealth()
@@ -166,6 +173,26 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (dying)
+        {
+            if (eyesApperture < 10)
+            {
+                eyesApperture += Time.deltaTime * 2;
+                invincible = true;
+                eyeVignetteMtrl.SetFloat("_Exponential", eyesApperture);
+
+            }
+            else
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                invincible = false;
+                eyesApperture = 0;
+                health = 100;
+                eyeVignetteMtrl.SetFloat("_Exponential", eyesApperture);
+                dying = false;
+            }
+        }
 
         if (health < 100)
         {
