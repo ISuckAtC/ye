@@ -36,7 +36,42 @@ ModelImporter:
   - first:
       74: 1555546630585696353
     second: HumanArmature|Man_Walk
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Details
+    second: {fileID: 2100000, guid: fae0978b4cfaff245b41b050d0693cd7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes
+    second: {fileID: 2100000, guid: 82c702f120e4bec47a4ca2d65a2c9dc9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: a205566a8d617a74e91f53ec9663ac35, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pants
+    second: {fileID: 2100000, guid: 8cd9fb71588960e478af051e40a3a8ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shirt
+    second: {fileID: 2100000, guid: 77b66288cbdf82c46b7340d8da8ea781, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin
+    second: {fileID: 2100000, guid: d9a8279afca90b04b8799b1ac130162c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TieTexture
+    second: {fileID: 2100000, guid: 8a8160bb32c28ae4495e28ea66a56b3a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
