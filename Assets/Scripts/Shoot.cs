@@ -16,7 +16,7 @@ public class Shoot : MonoBehaviour
     bool turnToRed;
     float greenSlider = 1;
     float blueSlider = 1;
-    Material hitMaterial;
+    Material[] hitMaterial;
     bool changeColorNow = false;
 
     private void Start()
@@ -60,9 +60,12 @@ public class Shoot : MonoBehaviour
                     greenSlider += Time.deltaTime * 5;
                     blueSlider += Time.deltaTime * 5;
 
-
-                    hitMaterial.SetFloat("_GreenFloat", greenSlider);
-                    hitMaterial.SetFloat("_BlueFloat", blueSlider);
+                    foreach (var mat in hitMaterial)
+                    {
+                        mat.SetFloat("_GreenFloat", greenSlider);
+                        mat.SetFloat("_BlueFloat", blueSlider);
+                    }
+                    
                 }
                 else
                 {
@@ -79,8 +82,11 @@ public class Shoot : MonoBehaviour
                     greenSlider -= Time.deltaTime * 5;
                     blueSlider -= Time.deltaTime * 5;
 
-                    hitMaterial.SetFloat("_GreenFloat", greenSlider);
-                    hitMaterial.SetFloat("_BlueFloat", blueSlider);
+                    foreach (var mat in hitMaterial)
+                    {
+                        mat.SetFloat("_GreenFloat", greenSlider);
+                        mat.SetFloat("_BlueFloat", blueSlider);
+                    }
                 }
                 else
                 {
@@ -116,17 +122,20 @@ public class Shoot : MonoBehaviour
                 
             }
             Enemy enemy;
-            if (hit.transform.TryGetComponent<Enemy>(out enemy) || hit.transform.parent.transform.TryGetComponent<Enemy>(out enemy))
+            if (hit.transform.TryGetComponent<Enemy>(out enemy) || ( hit.transform.parent != null && hit.transform.parent.transform.TryGetComponent<Enemy>(out enemy)))
             {
-                
+                hitMaterial = new Material[hit.collider.gameObject.GetComponent<Renderer>().materials.Length];
                 bool isEnemyDead = hit.rigidbody.gameObject.GetComponentInParent<Enemy>().TakeDamage(damage);
                 if (isEnemyDead)
                     currentAmmo = maxAmmo;
 
-                
+                for (int i = 0; i < hit.collider.gameObject.GetComponent<Renderer>().materials.Length; i++)
+                {
+                    hit.collider.gameObject.GetComponent<Renderer>().materials[i].SetFloat("_EnemyHit", 1);
+                    hitMaterial[i] = hit.collider.gameObject.GetComponent<Renderer>().materials[i];
+                }
 
-                hit.collider.gameObject.GetComponent<Renderer>().material.SetFloat("_EnemyHit", 1);
-                hitMaterial = hit.collider.gameObject.GetComponent<Renderer>().material;
+                
                 turnToRed = true;
                 changeColorNow = true;
 
