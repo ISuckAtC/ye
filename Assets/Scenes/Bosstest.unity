@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 973c877afa1c1574cb86088cb254ad4e, type: 2}
 --- !u!1 &37010944
 GameObject:
   m_ObjectHideFlags: 0
@@ -6762,6 +6762,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1077997592700471122, guid: 009f3eefc0ad3654aa0d1021fb903cb8, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8474386073701893978, guid: 009f3eefc0ad3654aa0d1021fb903cb8, type: 3}
       propertyPath: impactEffectObj
       value: 
@@ -12965,7 +12969,7 @@ GameObject:
   m_TagString: NotTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &1453018434
 BoxCollider:
@@ -22638,6 +22642,79 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &4361466183896783653
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4361466183594700578, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
+      propertyPath: m_Name
+      value: Kim
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361466183594700587, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
+      propertyPath: m_RootOrder
+      value: 113
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361466183594700587, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361466183594700587, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361466183594700587, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.6917839
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361466183594700587, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361466183594700587, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361466183594700587, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361466183594700587, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361466183594700587, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361466183594700587, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361466183594700587, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361466183594700589, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
+      propertyPath: fartProjectileCount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361466183594700589, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
+      propertyPath: fartProjectileLifetime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361466183594700589, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
+      propertyPath: fartProjectileSpeedMax
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361466183594700589, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
+      propertyPath: fartProjectileSpeedMin
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4be353bd63ef6164b90699987c0f69f3, type: 3}
 --- !u!1 &4366355335331672695
 GameObject:
   m_ObjectHideFlags: 0

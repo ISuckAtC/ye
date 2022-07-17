@@ -95,7 +95,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077997592700471118}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b2b92b81b4de5bc48a1c3a3e655f09ae, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -143,6 +143,7 @@ MonoBehaviour:
   cameraBopSpeed: 10
   cameraBopLength: 0.1
   cameraBopHeight: 0.03
+  eyeVignetteMtrl: {fileID: 0}
 --- !u!114 &1077997592700471123
 MonoBehaviour:
   m_ObjectHideFlags: 0
