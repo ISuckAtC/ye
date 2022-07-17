@@ -62,15 +62,15 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Exponential: 109.57
+    - _Exponential: 0.3
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OffsetX: 0
-    - _OffsetY: 0
+    - _OffsetX: 1.07
+    - _OffsetY: -0.4
     - _Parallax: 0.02
     - _PlayerDying: 1
     - _SmoothnessTextureChannel: 0
