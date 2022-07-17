@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        eyeVignetteMtrl.SetFloat("_Exponential", (100 - health) / 200);
+       // eyeVignetteMtrl.SetFloat("_Exponential", (100 - health) / 200);
 
 
         if (skipFirstFrame)
