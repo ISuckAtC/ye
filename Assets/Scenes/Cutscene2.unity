@@ -823,24 +823,25 @@ MonoBehaviour:
   - What the fuck?
   - Im just trying to figure out how we got here.
   - You think I have poop trauma?
-  - I just lost my temper. I dont have any fucking trauma.
+  - Think about it Max.
   - 
-  - I don't think that's the case Max.
-  - Think about it.
-  - Sure.
-  - I've read your file.
-  - About 8 years back. There was an incident in the Cop Killa Records offices.
-  - The details were buried but rumours reached us.
-  - 'Of course, we never acted on it, no one in the label would speak about it. They
-    weren''t gonna kill their golden goose. '
-  - Does this ring a bell?
+  - Is there any situation that makes more sense now after what i just told you?
   - 
-  - All I took...
-  - Was some bad acid man.
-  - Nothing more.
-  - So it's all bullshit?
+  - Eight years ago.
+  - There was an incident in the Cop Killa Records offices.
+  - I took some bad acid.
   - 
-  - Well. Not all of it. I'll tell you what happened.
+  - I stripped naked  and took a shit in the corner. We had to do some hush payments.
+    Get some NDAs out and stuff.
+  - But, inside my mind I faced the hardest battle of my life.
+  - 
+  - I imagine.
+  - You...
+  - 
+  - Could never imagine.
+  - Test me.
+  - 
+  - I'll tell you.
   persons:
   - '[JESSE]'
   - '[JESSE]'
@@ -848,23 +849,24 @@ MonoBehaviour:
   - '[MAX]'
   - '[JESSE]'
   - '[MAX]'
-  - '[MAX]'
-  - 
-  - '[JESSE]'
-  - '[JESSE]'
-  - '[MAX]'
-  - '[JESSE]'
-  - '[JESSE]'
-  - '[JESSE]'
-  - '[JESSE]'
-  - '[JESSE]'
-  - 
-  - '[MAX]'
-  - '[MAX]'
-  - '[MAX]'
   - '[JESSE]'
   - 
   - '[JESSE]'
+  - 
+  - '[JESSE]'
+  - '[JESSE]'
+  - '[JESSE]'
+  - 
+  - '[JESSE]'
+  - '[JESSE]'
+  - 
+  - '[JESSE]'
+  - '[MAX]'
+  - 
+  - '[MAX]'
+  - '[JESSE]'
+  - 
+  - '[MAX]'
   lineDurations:
   - 5
   - 7
@@ -877,15 +879,16 @@ MonoBehaviour:
   - 5
   - 2
   - 2
-  - 2
   - 6
-  - 6
+  - 3
+  - 3
   - 8
   - 6
   - 3
   - 2
   - 5
   - 3
+  - 4
   - 3
   - 2
   - 7
@@ -1905,7 +1908,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
   - m_VirtualCamera: {fileID: 1338590051}
-    m_Hold: 1
+    m_Hold: 4
     m_Blend:
       m_Style: 1
       m_Time: 10
@@ -3257,7 +3260,7 @@ GameObject:
   - component: {fileID: 1338590052}
   - component: {fileID: 1338590051}
   m_Layer: 0
-  m_Name: CM vcam1 (3)
+  m_Name: MoonmoonTopCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
