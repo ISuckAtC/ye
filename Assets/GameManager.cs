@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
+
         switch (stages)
         {
             case Stages.RangedStage:
@@ -46,11 +49,37 @@ public class GameManager : MonoBehaviour
                         foreach (Transform t in rangedGO.transform)
                         {
                             t.GetComponent<EnemyOfficer>().enabled = true;
+                            rangedActive = true;
                         }
+
+                        
+                    }
+                }
+                else
+                {
+                    if (rangedGO.transform.childCount == 0)
+                    {
+                        stages = Stages.MeleeStage;
                     }
                 }
                 break;
             case Stages.MeleeStage:
+                if (!meleeActive)
+                {
+                    if (meleeTimer < 5f)
+                    {
+                        meleeTimer += Time.deltaTime;
+                    }
+                    else
+                    {
+                        foreach (Transform t in meleeGO.transform)
+                        {
+                            t.GetComponent<EnemyBouncer>().enabled = true;
+                            t.GetComponent<Enemy>().invincible = false;
+                            meleeActive = true;
+                        }
+                    }
+                }
                 break;
             case Stages.MiniJudgeStage:
                 break;
