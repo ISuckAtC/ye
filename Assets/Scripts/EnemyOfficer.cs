@@ -145,9 +145,7 @@ public class EnemyOfficer : Enemy
 
     private void Attack()
     {
-        animator.speed = 0.6f;
-        animator.SetBool("isWalking", false);
-        animator.SetBool("isShooting", true);
+       
 
         agent.SetDestination(transform.position);
 
@@ -157,6 +155,9 @@ public class EnemyOfficer : Enemy
 
         if (!didAttack)
         {
+            animator.speed = 0.6f;
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isShooting", true);
 
             bulletClone = Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
 
@@ -167,12 +168,14 @@ public class EnemyOfficer : Enemy
             Destroy(bulletClone, bulletLifeTime);
 
             didAttack = true;
+            
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
 
     private void ResetAttack()
     {
+        animator.SetBool("isShooting", false);
         didAttack = false;
         help = 0;
     }
