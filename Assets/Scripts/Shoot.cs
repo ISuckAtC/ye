@@ -105,20 +105,27 @@ public class Shoot : MonoBehaviour
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
+           
+
             if (hit.transform.tag == "Target")
             {
                 hit.rigidbody.AddForce(-hit.normal * impactForce, ForceMode.VelocityChange);
 
-                hit.collider.gameObject.GetComponent<Renderer>().material.SetFloat("_EnemyHit", 1);
+                
+
+                
             }
             Enemy enemy;
-            if (hit.transform.TryGetComponent<Enemy>(out enemy))
+            if (hit.transform.TryGetComponent<Enemy>(out enemy) || hit.transform.parent.transform.TryGetComponent<Enemy>(out enemy))
             {
-
+                
                 bool isEnemyDead = hit.rigidbody.gameObject.GetComponentInParent<Enemy>().TakeDamage(damage);
                 if (isEnemyDead)
                     currentAmmo = maxAmmo;
 
+                
+
+                hit.collider.gameObject.GetComponent<Renderer>().material.SetFloat("_EnemyHit", 1);
                 hitMaterial = hit.collider.gameObject.GetComponent<Renderer>().material;
                 turnToRed = true;
                 changeColorNow = true;

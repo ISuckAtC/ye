@@ -111,6 +111,7 @@ public class EnemyBouncer : Enemy
     void Dash()
     {
         rSphere = transform.position + Random.insideUnitSphere * 1.5f;
+        rSphere.Normalize();
 
         NavMeshHit hit;
         if (NavMesh.SamplePosition(rSphere, out hit, 10f, NavMesh.AllAreas))
@@ -119,11 +120,13 @@ public class EnemyBouncer : Enemy
         }
 
 
-        agent.isStopped = true;
-        Debug.Log("dooodge");
-        agent.Move(new Vector3(rSphere.x, hit.position.y, rSphere.z).normalized * dashSpeed * Time.deltaTime);
+        //agent.isStopped = true;
+        var step = 10f * Time.deltaTime;
+        
+        agent.Warp(Vector3.MoveTowards(transform.position, hit.position, step));
+        //agent.Move(new Vector3(rSphere.x, hit.position.y, rSphere.z).normalized * Time.deltaTime);
         //agent.Move(gameObject.transform.right * dashSpeed * Time.deltaTime);
-        agent.isStopped = false;
+        //agent.isStopped = false;
 
 
     }
@@ -134,7 +137,9 @@ public class EnemyBouncer : Enemy
         CancelInvoke(nameof(Dash));
         agent.SetDestination(transform.position);
 
-        transform.LookAt(player.transform.position);
+        Vector3 lookVector = player.transform.position - transform.position;
+        lookVector.Normalize();
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookVector), 10f * Time.deltaTime);
 
 
         if (!didAttack)
