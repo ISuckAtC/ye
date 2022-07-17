@@ -31,9 +31,14 @@ public class PlayerController : MonoBehaviour
     public List<Keydoor.DoorColor> keys = new List<Keydoor.DoorColor>();
 
     public Material eyeVignetteMtrl;
+    float gainHealthTimer = 5f;
+    float initialHealthTimer;
+    int c = 0;
+
     public void TakeDamage(int damage)
     {
-
+        c++;
+        gainHealthTimer = initialHealthTimer + c;
         health -= damage;
         if (health <= 0)
         {
@@ -43,7 +48,15 @@ public class PlayerController : MonoBehaviour
         eyeVignetteMtrl.SetFloat("_Exponential", (100 - health) / 200);
     }
 
-    
+    public void GainHealth()
+    {
+        health += 5;
+        gainHealthTimer = initialHealthTimer;
+        eyeVignetteMtrl.SetFloat("_Exponential", (100 - health) / 200);
+
+    }
+
+
 
     public void PickupWeapon(GameObject weapon, Vector3 position, Quaternion rotation)
     {
@@ -127,6 +140,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        initialHealthTimer = gainHealthTimer;
         eyeVignetteMtrl.SetFloat("_Exponential", 0);
         rb = GetComponent<Rigidbody>();
         mr = GetComponent<MeshRenderer>();
@@ -150,7 +164,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log((int)gainHealthTimer);
 
+
+
+        if (health < 100)
+        {
+            if (gainHealthTimer > 0)
+            {
+                gainHealthTimer -= Time.deltaTime;
+            }
+            else
+            {
+                GainHealth();
+                gainHealthTimer = 5f;
+                c = 0;
+            }
+        }
+        
 
         if (skipFirstFrame)
         {

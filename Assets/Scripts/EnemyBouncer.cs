@@ -29,6 +29,8 @@ public class EnemyBouncer : Enemy
     public float dashSpeed;
     public float dashTime;
     Vector3 rSphere;
+    int help = 0;
+    float dashMethTime = 3f;
 
     public void Start()
     {
@@ -59,6 +61,9 @@ public class EnemyBouncer : Enemy
             Attack();
         }
 
+
+        Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + gameObject.transform.right.normalized, Color.red);
+        Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + -gameObject.transform.right.normalized, Color.red);
 
     }
 
@@ -104,8 +109,17 @@ public class EnemyBouncer : Enemy
         agent.isStopped = false;
         agent.SetDestination(player.transform.position);
 
+        if (dashMethTime > 0f)
+        {
+            dashMethTime -= Time.deltaTime;
+        }
+        else
+        {
+            Dash();
+            dashMethTime = 3f;
+        }
 
-        InvokeRepeating(nameof(Dash), 5f, 3f);
+        //InvokeRepeating(nameof(Dash), 5f, 3f);
     }
 
     void Dash()
@@ -114,6 +128,7 @@ public class EnemyBouncer : Enemy
         rSphere.Normalize();
 
         NavMeshHit hit;
+
         if (NavMesh.SamplePosition(rSphere, out hit, 10f, NavMesh.AllAreas))
         {
             
@@ -121,11 +136,14 @@ public class EnemyBouncer : Enemy
 
 
         //agent.isStopped = true;
-        var step = 10f * Time.deltaTime;
+        //var step = 2f * Time.deltaTime;
+        Vector3 randomHorizontal = Random.Range(0.0f, 1.0f) <= 0.5 ? gameObject.transform.right.normalized * 2 : -gameObject.transform.right.normalized * 2;
+
+        //agent.Warp(Vector3.MoveTowards(gameObject.transform.position, Random.Range(0, 1) == 0 ? gameObject.transform.position + gameObject.transform.right.normalized : gameObject.transform.position + -gameObject.transform.right.normalized, step));
+        agent.Warp(Vector3.MoveTowards(gameObject.transform.position, gameObject.transform.position + randomHorizontal, 5f));
         
-        agent.Warp(Vector3.MoveTowards(transform.position, hit.position, step));
-        //agent.Move(new Vector3(rSphere.x, hit.position.y, rSphere.z).normalized * Time.deltaTime);
-        //agent.Move(gameObject.transform.right * dashSpeed * Time.deltaTime);
+        //agent.Move(new Vector3(rSphere.x, hit.position.y, rSphere.z).normalized / 5 * dashSpeed * Time.deltaTime);
+        //agent.Move((gameObject.transform.position + gameObject.transform.right.normalized) * dashSpeed * Time.deltaTime);
         //agent.isStopped = false;
 
 
