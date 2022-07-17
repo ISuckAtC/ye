@@ -33,6 +33,8 @@ public class EnemyKim : Enemy
     public float fartProjectileCount;
     public float fartProjectileLifetime;
     public float fartProjectileSpeedMin, fartProjectileSpeedMax;
+    public float fartPushRange;
+    public float fartPushVerticalBias;
 
     public float minionSpawnCount;
     // Start is called before the first frame update
@@ -109,6 +111,14 @@ public class EnemyKim : Enemy
                             GameObject fart = Instantiate(fartProjectile, transform.position, Quaternion.identity);
                             fart.GetComponent<Rigidbody>().AddForce(fartDirection * Random.Range(fartProjectileSpeedMin, fartProjectileSpeedMax), ForceMode.VelocityChange);
                             Destroy(fart, fartProjectileLifetime);
+                        }
+
+                        Collider[] colliders = Physics.OverlapSphere(transform.position, fartPushRange, LayerMask.GetMask("Fart"));
+                        foreach (Collider collider in colliders)
+                        {
+                            Vector3 direction = collider.transform.position - transform.position;
+                            direction += new Vector3(0, fartPushVerticalBias, 0);
+                            collider.GetComponent<Rigidbody>().AddForce(direction.normalized * (fartPushRange - direction.magnitude), ForceMode.VelocityChange);
                         }
 
 
