@@ -16,6 +16,7 @@ public class Shoot : MonoBehaviour
     float greenSlider = 1;
     float blueSlider = 1;
     Material hitMaterial;
+    bool changeColorNow = false;
 
     private void Start()
     {
@@ -48,42 +49,49 @@ public class Shoot : MonoBehaviour
             Fire();
         }
 
-        if (turnToRed)
+
+        if (changeColorNow)
         {
-            if (greenSlider > 0 && blueSlider > 0)
+            if (turnToRed)
             {
-                greenSlider -= Time.deltaTime * 5;
-                blueSlider -= Time.deltaTime * 5;
+                if (greenSlider < 1 && blueSlider < 1)
+                {
+                    greenSlider += Time.deltaTime * 5;
+                    blueSlider += Time.deltaTime * 5;
 
 
-                hitMaterial.SetFloat("_GreenFloat", greenSlider);
-                hitMaterial.SetFloat("_BlueFloat", blueSlider);
-            }
-            else
-            {
-                turnToRed = false;
-            }
+                    hitMaterial.SetFloat("_GreenFloat", greenSlider);
+                    hitMaterial.SetFloat("_BlueFloat", blueSlider);
+                }
+                else
+                {
+                    turnToRed = false;
+                }
 
 
-        }
-        else
-        {
-
-            if (greenSlider < 1 && blueSlider < 1)
-            {
-                greenSlider += Time.deltaTime * 5;
-                blueSlider += Time.deltaTime * 5;
-
-                hitMaterial.SetFloat("_GreenFloat", greenSlider);
-                hitMaterial.SetFloat("_BlueFloat", blueSlider);
             }
             else
             {
 
-                greenSlider = 1;
-                blueSlider = 1;
+                if (greenSlider > 0 && blueSlider > 0)
+                {
+                    greenSlider -= Time.deltaTime * 5;
+                    blueSlider -= Time.deltaTime * 5;
+
+                    hitMaterial.SetFloat("_GreenFloat", greenSlider);
+                    hitMaterial.SetFloat("_BlueFloat", blueSlider);
+                }
+                else
+                {
+
+                    greenSlider = 0;
+                    blueSlider = 0;
+                    changeColorNow = false;
+                }
             }
         }
+
+        
     }
 
     void Fire()
@@ -96,24 +104,28 @@ public class Shoot : MonoBehaviour
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
-
+            
             if (hit.transform.tag == "Target" && hit.transform != null)
             {
                 if (hit.rigidbody != null)
                 {
+                    
                     hit.rigidbody.AddForce(-hit.normal * impactForce, ForceMode.VelocityChange);
 
                     hit.collider.gameObject.GetComponent<Renderer>().material.SetFloat("_EnemyHit", 1);
-                    turnToRed = true;
+                    
                     
                     // Do the enemy check separately to add force to other things when hit by a bullet
                     if (LayerMask.LayerToName(hit.rigidbody.gameObject.layer) == "Enemy")
                     {
-                        bool isEnemyDead = hit.rigidbody.gameObject.GetComponent<Enemy>().TakeDamage(Mathf.RoundToInt(dmg));
+                        
+                        bool isEnemyDead = hit.rigidbody.gameObject.GetComponentInParent<Enemy>().TakeDamage(Mathf.RoundToInt(dmg));
                         if (isEnemyDead)
                             currentAmmo = maxAmmo;
 
                         hitMaterial = hit.collider.gameObject.GetComponent<Renderer>().material;
+                        turnToRed = true;
+                        changeColorNow = true;
 
                     }
                 }
