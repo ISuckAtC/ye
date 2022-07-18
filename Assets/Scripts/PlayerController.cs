@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     bool invincible = false;
 
     public GameObject audioController;
+    private GameObject camera;
 
     public void TakeDamage(int damage)
     {
@@ -55,6 +56,8 @@ public class PlayerController : MonoBehaviour
                 dying = true;
                 speed = 0;
                 eyesApperture = (100 - health) / 200;
+                camera.SetActive(false);
+
             }
             eyeVignetteMtrl.SetFloat("_Exponential", (100 - health) / 200);
         }
@@ -153,6 +156,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        camera = GameObject.FindGameObjectWithTag("FPSCamera");
         mouseSensitivity = PlayerPrefs.GetFloat("sensitivity", 1);
         initialHealthTimer = gainHealthTimer;
         eyeVignetteMtrl.SetFloat("_Exponential", 0);
@@ -195,6 +199,8 @@ public class PlayerController : MonoBehaviour
                 eyesApperture = 0;
                 health = 100;
                 eyeVignetteMtrl.SetFloat("_Exponential", eyesApperture);
+                camera.SetActive(true);
+
                 dying = false;
             }
         }

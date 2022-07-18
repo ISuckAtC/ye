@@ -42,6 +42,7 @@ public class EnemyHugger : Enemy
     {
         CancelInvoke(nameof(ResetAttack));
         ResetAttack();
+
     }
 
     public void Start()
@@ -220,11 +221,21 @@ public class EnemyHugger : Enemy
     private void ResetAttack()
     {
         canMash = false;
+
         fillbar = 0;
+
         didAttack = false;
+
         grabbingPlayer = false;
-        pController.speed = initialSpeed;
+
+        if (pController != null)
+        {
+            pController.speed = initialSpeed;
+        }
+        
+
         checkGrab = true;
+
         grabCooldown = 2f;
     }
 }
