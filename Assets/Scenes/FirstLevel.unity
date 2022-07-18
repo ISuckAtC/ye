@@ -3666,7 +3666,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024084026}
-  m_RootOrder: 175
+  m_RootOrder: 150
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
 --- !u!64 &282343141
 MeshCollider:
@@ -19229,7 +19229,7 @@ Transform:
   - {fileID: 2139818424}
   - {fileID: 703503779}
   m_Father: {fileID: 2024084026}
-  m_RootOrder: 112
+  m_RootOrder: 111
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &1082619895
 PrefabInstance:
@@ -20703,8 +20703,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1984b4ff4fece80448c02f00abff6d72, type: 3}
   - {fileID: 8300000, guid: 884166c78d79d624f93dd752fd29f954, type: 3}
   clips:
-  - {fileID: 8300000, guid: 884166c78d79d624f93dd752fd29f954, type: 3}
-  initialClip: {fileID: 8300000, guid: 884166c78d79d624f93dd752fd29f954, type: 3}
+  - {fileID: 8300000, guid: 7e80ae0461a9d8e47bb08e9feef5b0f2, type: 3}
+  - {fileID: 8300000, guid: 7e80ae0461a9d8e47bb08e9feef5b0f2, type: 3}
+  - {fileID: 8300000, guid: 9578543e6d39a124b82ddac1ca6cf27a, type: 3}
+  - {fileID: 8300000, guid: af4b68bc58776a14fbba497c9d5a6174, type: 3}
+  - {fileID: 8300000, guid: 3833753f5d290cb48ac03576cbed71b3, type: 3}
+  - {fileID: 8300000, guid: 4f430633abcacaa42b1aa673406526f7, type: 3}
+  - {fileID: 8300000, guid: 4f430633abcacaa42b1aa673406526f7, type: 3}
+  initialClip: {fileID: 8300000, guid: 8b608f6897246e44785069df9c466951, type: 3}
   audioSource: {fileID: 1117752645}
   state: introducing
   i: 0
@@ -35085,8 +35091,8 @@ Transform:
   - {fileID: 674801785}
   - {fileID: 1488246167}
   - {fileID: 134885243}
-  - {fileID: 972134097}
   - {fileID: 1081957086}
+  - {fileID: 972134097}
   - {fileID: 2023431825}
   - {fileID: 1603519809}
   - {fileID: 2927728406960721206}
@@ -35095,16 +35101,16 @@ Transform:
   - {fileID: 2998210926299761712}
   - {fileID: 1282148898077652289}
   - {fileID: 3247047216185893908}
-  - {fileID: 825255145}
   - {fileID: 9131421669786122623}
+  - {fileID: 825255145}
   - {fileID: 1952081979514681772}
   - {fileID: 40846873076533575}
   - {fileID: 1121618923273497137}
-  - {fileID: 1142374440}
   - {fileID: 214369675293180281}
+  - {fileID: 1142374440}
+  - {fileID: 2049813863}
   - {fileID: 1458053853}
   - {fileID: 326996465}
-  - {fileID: 2049813863}
   - {fileID: 419689479}
   - {fileID: 2008378952}
   - {fileID: 1411904110}
@@ -35124,6 +35130,7 @@ Transform:
   - {fileID: 710153159}
   - {fileID: 1606381588}
   - {fileID: 1795924587}
+  - {fileID: 282343140}
   - {fileID: 1051254255}
   - {fileID: 2122679661}
   - {fileID: 1445805408}
@@ -35149,7 +35156,6 @@ Transform:
   - {fileID: 1337110206}
   - {fileID: 153626749}
   - {fileID: 906959448}
-  - {fileID: 282343140}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -35588,7 +35594,7 @@ Transform:
   - {fileID: 1475693750}
   - {fileID: 1221338751}
   m_Father: {fileID: 2024084026}
-  m_RootOrder: 130
+  m_RootOrder: 128
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2052355253
 GameObject:
@@ -37320,7 +37326,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024084026}
-  m_RootOrder: 127
+  m_RootOrder: 126
   m_LocalEulerAnglesHint: {x: -89.98, y: 180, z: 0}
 --- !u!1 &243519159009886708
 GameObject:
@@ -50053,7 +50059,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2024084026}
-  m_RootOrder: 122
+  m_RootOrder: 121
   m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!65 &9131421669786122624
 BoxCollider:
