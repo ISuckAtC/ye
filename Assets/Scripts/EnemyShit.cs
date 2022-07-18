@@ -8,7 +8,7 @@ public class EnemyShit : Enemy
     public int phase;
     public GameObject fallPoop;
     public GameObject rollPoop;
-    private Animator animator;
+    private Animator animatoranimator;
     private MeshRenderer renderer;
     private Rigidbody rigidbody;
     public float speed;
@@ -42,6 +42,9 @@ public class EnemyShit : Enemy
     private NavMeshAgent agent;
     public GameObject fakeShitter;
     public float puddleChanceOnAttack;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -206,20 +209,17 @@ public class EnemyShit : Enemy
                         player.GetComponent<PlayerController>().TakeDamage(meleeDamage);
 
                         state = EnemyKim.States.Attack;
+                        Debug.Log("aa");
+                        animatoranimator.SetBool("isRight", true);
 
                         // run next code when attack hits
-                        
+
                         float frand = Random.Range(0f, 100f);
                         if (frand < puddleChanceOnAttack)
                         {
                             GameObject puddle = Instantiate(poopPuddle, transform.position, Quaternion.identity);
                             puddle.transform.SetParent(antiClutter);
                         }
-
-                        // run next code after attack animation finishes (in animation state script or callback)
-
-                        waitTime = meleeAttackCD;
-                        state = EnemyKim.States.Wait;
 
                         break;
                 }
@@ -234,5 +234,13 @@ public class EnemyShit : Enemy
                 state = EnemyKim.States.Chase;
             }
         }
+    }
+
+    //gets called when animation finishes
+    public void AttackFinish()
+    {
+        waitTime = meleeAttackCD;
+        state = EnemyKim.States.Wait;
+        animatoranimator.SetBool("isRight", false);
     }
 }

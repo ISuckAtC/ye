@@ -5695,6 +5695,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6600586483962784920, guid: 309cf218315ad9e40b354c28c13e2c45, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6600586483962784922, guid: 309cf218315ad9e40b354c28c13e2c45, type: 3}
       propertyPath: m_Name
       value: SHITLORD
