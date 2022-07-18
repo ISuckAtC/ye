@@ -124,15 +124,15 @@ public class Shoot : MonoBehaviour
             Enemy enemy;
             if (hit.transform.TryGetComponent<Enemy>(out enemy) || ( hit.transform.parent != null && hit.transform.parent.transform.TryGetComponent<Enemy>(out enemy)))
             {
-                hitMaterial = new Material[hit.collider.gameObject.GetComponent<Renderer>().materials.Length];
+                hitMaterial = new Material[hit.collider.gameObject.GetComponentInChildren<Renderer>().materials.Length];
                 bool isEnemyDead = hit.rigidbody.gameObject.GetComponentInParent<Enemy>().TakeDamage(damage);
                 if (isEnemyDead)
                     currentAmmo = maxAmmo;
 
-                for (int i = 0; i < hit.collider.gameObject.GetComponent<Renderer>().materials.Length; i++)
+                for (int i = 0; i < hit.collider.gameObject.GetComponentInChildren<Renderer>().materials.Length; i++)
                 {
-                    hit.collider.gameObject.GetComponent<Renderer>().materials[i].SetFloat("_EnemyHit", 1);
-                    hitMaterial[i] = hit.collider.gameObject.GetComponent<Renderer>().materials[i];
+                    hit.collider.gameObject.GetComponentInChildren<Renderer>().materials[i].SetFloat("_EnemyHit", 1);
+                    hitMaterial[i] = hit.collider.gameObject.GetComponentInChildren<Renderer>().materials[i];
                 }
 
                 
@@ -150,7 +150,7 @@ public class Shoot : MonoBehaviour
             GameObject impactObjGameObject = Instantiate(impactEffectObj, hit.point, Quaternion.LookRotation(Vector3.Reflect(cam.transform.forward, hit.normal)));
 
             ParticleSystem.MainModule mainModule = impactObjGameObject.GetComponent<ParticleSystem>().main;
-            mainModule.startColor = new ParticleSystem.MinMaxGradient(hit.transform.GetComponent<Renderer>().material.color);
+            mainModule.startColor = new ParticleSystem.MinMaxGradient(hit.transform.GetComponentInChildren<Renderer>().material.color);
 
             Destroy(impactObjGameObject, 2f);
         }

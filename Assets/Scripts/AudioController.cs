@@ -56,7 +56,7 @@ public class AudioController : MonoBehaviour
         }
         i = 0;
     }
-
+    
     IEnumerator AwaitForPlay(float duration)
     {
         Debug.Log("coroutine starter");
