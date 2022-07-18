@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d183b2ff15e37a34cad9cd10c1d50469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: Cutscene3
   delay: 3
   startOnAwake: 1

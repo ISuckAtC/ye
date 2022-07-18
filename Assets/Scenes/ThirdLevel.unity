@@ -1226,7 +1226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05127c05458f93448418e6ed4f85f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 600
   spawnOnDeath: {fileID: 5316152656934959585, guid: a930a2d436b17fe4dabf079b923ba526, type: 3}
   invincible: 0
   phase: 0
@@ -5805,11 +5805,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 662210362619516257, guid: 4cfc470224de4e44baf45b82eee39f52, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 93.7
+      value: -54.63
       objectReference: {fileID: 0}
     - target: {fileID: 662210362619516257, guid: 4cfc470224de4e44baf45b82eee39f52, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.2
+      value: 1.71
       objectReference: {fileID: 0}
     - target: {fileID: 662210362619516257, guid: 4cfc470224de4e44baf45b82eee39f52, type: 3}
       propertyPath: m_LocalPosition.z
