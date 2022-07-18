@@ -5080,7 +5080,7 @@ MonoBehaviour:
   turnSpeed: {x: 500, y: 300}
   head: {fileID: 3448992145208012236}
   weaponMelee: {fileID: 6309568485576967581}
-  weaponRange: {fileID: 0}
+  weaponRange: {fileID: 6309568485576967581}
   health: 100
   FOVChangeSpeedUp: 300
   FOVChangeSpeedDown: 100
@@ -5088,6 +5088,7 @@ MonoBehaviour:
   cameraBopSpeed: 10
   cameraBopLength: 0.1
   cameraBopHeight: 0.03
+  mouseSensitivity: 0
   keys: 
   eyeVignetteMtrl: {fileID: 2100000, guid: b482e7c1f96c5ed4390682b984b25d51, type: 2}
   audioController: {fileID: 0}
@@ -5355,6 +5356,7 @@ MonoBehaviour:
   reloadTime: 1
   damage: 40
   maxAmmo: 4
+  isReloading: 0
   muzzleFlash: {fileID: 1462927626272264638}
   impactEffectEnemy: {fileID: 931100914699356905, guid: 4bf651d485c973045934a753a79a7f4a, type: 3}
   impactEffectObj: {fileID: 6030127406700833089, guid: 00732d5b69c782c44ac071bba537430b, type: 3}

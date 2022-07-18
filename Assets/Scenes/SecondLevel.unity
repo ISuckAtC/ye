@@ -22814,6 +22814,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 248
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &423960247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6309568485576967581, guid: 031ecdd4540aa1f42992b0239838bd5e, type: 3}
+  m_PrefabInstance: {fileID: 1462927625715775933}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &424021694
 GameObject:
   m_ObjectHideFlags: 0
@@ -34205,6 +34210,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673966126}
   m_Mesh: {fileID: -4100975523664702945, guid: d8da51ef016781b4592a521fdfbcc72b, type: 3}
+--- !u!1 &682126195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6914846320304704079, guid: 031ecdd4540aa1f42992b0239838bd5e, type: 3}
+  m_PrefabInstance: {fileID: 1462927625715775933}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &684046988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53540,8 +53550,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 872381061}
   m_HandleRect: {fileID: 1573872210}
   m_Direction: 0
-  m_MinValue: 1
-  m_MaxValue: 10
+  m_MinValue: 0.5
+  m_MaxValue: 5
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
@@ -98362,9 +98372,13 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3448992145028903248, guid: 031ecdd4540aa1f42992b0239838bd5e, type: 3}
+      propertyPath: weaponMelee
+      value: 
+      objectReference: {fileID: 682126195}
+    - target: {fileID: 3448992145028903248, guid: 031ecdd4540aa1f42992b0239838bd5e, type: 3}
       propertyPath: weaponRange
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 423960247}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 031ecdd4540aa1f42992b0239838bd5e, type: 3}
 --- !u!4 &1479602413255362981
