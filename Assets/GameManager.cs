@@ -33,8 +33,6 @@ public class GameManager : MonoBehaviour
     float corridorMixTimer = 0;
 
     public bool blueDoorOpen = false;
-    public bool redDoorOpen = false;
-    public bool greenDoorOpen = false;
     public bool yellowDoorOpen = false;
 
 
@@ -42,7 +40,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        stages = Stages.SupremeJudgeStage;
+        stages = Stages.RangedStage;
     }
 
     // Update is called once per frame
