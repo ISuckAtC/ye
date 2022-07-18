@@ -53350,7 +53350,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6920495764256580525, guid: 357f0e7b264bfe3429aa5097730b7962, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6920495764256580525, guid: 357f0e7b264bfe3429aa5097730b7962, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63746,6 +63746,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 0
+--- !u!65 &1326105954
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326105949}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.5067897, y: 4.1336, z: 1.44}
+  m_Center: {x: 0.009480238, y: 2.1257882, z: -0.01460886}
 --- !u!1 &1326906315
 GameObject:
   m_ObjectHideFlags: 0
@@ -67017,6 +67030,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416695530}
   m_Mesh: {fileID: -2201966620923598834, guid: 163d5d760562e3c4a87131b1f347c319, type: 3}
+--- !u!1 &1418065997 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4387284022929882240, guid: 628e96fb47cddfc47ab82c1140f927a7, type: 3}
+  m_PrefabInstance: {fileID: 155513169}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1420461786
 GameObject:
   m_ObjectHideFlags: 0
@@ -78722,7 +78740,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3668089219180227257, guid: e3249d25c651a044c8927b050ee0aaad, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3668089219180227257, guid: e3249d25c651a044c8927b050ee0aaad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -82832,6 +82850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb65ff17a6584b4f9d90dd1a32f3859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  supremeJudgeRoom: {fileID: 1418065997}
   redDoorOpen: 0
   greenDoorOpen: 0
 --- !u!4 &1796396055
@@ -99374,7 +99393,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -97.683, y: -52.82599, z: 0}
 --- !u!4 &1334037955501729867
 Transform:
@@ -99487,7 +99506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3448992145028903232, guid: 031ecdd4540aa1f42992b0239838bd5e, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3448992145028903232, guid: 031ecdd4540aa1f42992b0239838bd5e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -99532,6 +99551,10 @@ PrefabInstance:
     - target: {fileID: 3448992145028903244, guid: 031ecdd4540aa1f42992b0239838bd5e, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448992145028903248, guid: 031ecdd4540aa1f42992b0239838bd5e, type: 3}
+      propertyPath: health
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3448992145028903248, guid: 031ecdd4540aa1f42992b0239838bd5e, type: 3}
       propertyPath: weaponMelee
@@ -103167,7 +103190,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8025347097023928426}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.4900002, y: 1.7769375, z: 0.49000037}

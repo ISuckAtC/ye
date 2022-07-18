@@ -45,6 +45,7 @@ public class Keydoor : MonoBehaviour
 
                 case DoorColor.Red:
                     GameObject.Find("GameManagerSL").GetComponent<GameManagerSL>().redDoorOpen = true;
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                     break;
                 case DoorColor.Blue:
                     GameObject.Find("GameManager").GetComponent<GameManager>().blueDoorOpen = true;
@@ -52,6 +53,7 @@ public class Keydoor : MonoBehaviour
                     break;
                 case DoorColor.Green:
                     GameObject.Find("GameManagerSL").GetComponent<GameManagerSL>().greenDoorOpen = true;
+
                     Destroy(gameObject);
                     break;
                 case DoorColor.Yellow:
