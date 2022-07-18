@@ -37,7 +37,7 @@ public class Melee : MonoBehaviour
     {
         anim.SetTrigger("Attack");
 
-        Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.transform.position, attackRange, enemyLayers);
+        Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.transform.position, attackRange, enemyLayers | 1 << LayerMask.NameToLayer("PoopPuddle"));
 
         foreach (Collider enemy in hitEnemies)
         {
@@ -57,6 +57,11 @@ public class Melee : MonoBehaviour
                         anim.speed = 1f;
                     }
                 }
+            }
+
+            if (enemy.gameObject.layer == LayerMask.NameToLayer("PoopPuddle"))
+            {
+                enemy.gameObject.GetComponent<PuddlePoop>().HitPuddle(damageValue);
             }
         }
 

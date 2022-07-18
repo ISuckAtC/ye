@@ -10140,6 +10140,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1077997592700471122, guid: 009f3eefc0ad3654aa0d1021fb903cb8, type: 3}
+      propertyPath: verticalLookBounds
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077997592875391939, guid: 009f3eefc0ad3654aa0d1021fb903cb8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999913
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077997592875391939, guid: 009f3eefc0ad3654aa0d1021fb903cb8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0041888487
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077997592875391939, guid: 009f3eefc0ad3654aa0d1021fb903cb8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077997592875391939, guid: 009f3eefc0ad3654aa0d1021fb903cb8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077997592875391939, guid: 009f3eefc0ad3654aa0d1021fb903cb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.48
+      objectReference: {fileID: 0}
     - target: {fileID: 8474386073701893978, guid: 009f3eefc0ad3654aa0d1021fb903cb8, type: 3}
       propertyPath: impactEffectObj
       value: 

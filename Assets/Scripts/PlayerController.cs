@@ -228,8 +228,25 @@ public class PlayerController : MonoBehaviour
         {
             Vector2 mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")) * mouseSensitivity;
 
+            float oldAngle = Mathf.DeltaAngle(head.transform.localEulerAngles.x, 0);
+
             transform.Rotate(Vector3.up, mouseInput.x * turnSpeed.x * Time.deltaTime);
             head.transform.Rotate(Vector3.right, -mouseInput.y * turnSpeed.y * Time.deltaTime);
+
+            
+
+            float newAngle = Mathf.DeltaAngle(head.transform.localEulerAngles.x, 0);
+
+            //Debug.Log(newAngle);
+
+            if (mouseInput.y > 0 && newAngle < oldAngle)
+            {
+                head.transform.localEulerAngles = new Vector3(-90, head.transform.localEulerAngles.y, head.transform.localEulerAngles.z);
+            }
+            else if (mouseInput.y < 0 && newAngle > oldAngle)
+            {
+                head.transform.localEulerAngles = new Vector3(90, head.transform.localEulerAngles.y, head.transform.localEulerAngles.z);
+            }
         }
 
 
@@ -285,7 +302,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.X))
         {
-            audioController.GetComponent<AudioController>().defineNewLoops(new int[] { 1, 3, 4, });
+            //audioController.GetComponent<AudioController>().defineNewLoops(new int[] { 1, 3, 4, });
             RaycastHit hit;
 
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactRange))
