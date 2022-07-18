@@ -53,12 +53,16 @@ public class EnemyKim : Enemy
             if (waitTime <= 0)
             {
                 state = States.Idle;
+                ChangeAnimation(state);
+
             }
             else
             {
                 waitTime -= Time.deltaTime;
             }
         }
+
+
     }
 
     void FixedUpdate()
@@ -76,6 +80,8 @@ public class EnemyKim : Enemy
                 agent.isStopped = true;
                 player = null;
                 state = States.Idle;
+                ChangeAnimation(state);
+
             }
             else
             {
@@ -93,12 +99,24 @@ public class EnemyKim : Enemy
                     case 0:
                         Debug.Log("Kim klap attakk");
                         player.GetComponent<PlayerController>().TakeDamage(clapDamage);
-                        
+
+                        animator.SetBool("isWalking", false);
+                        animator.SetBool("isFarting", false);
+                        animator.SetBool("isSquatting", false);
+                        animator.SetBool("isAttacking", true);
 
                         // run next code after attack animation finishes (in animation state script or callback)
 
+
+                        //if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("YourAnimationName"))
+                        //{
+                        //    // Avoid any reload.
+                        //}
+
                         waitTime = clapCooldown;
                         state = States.Wait;
+                        ChangeAnimation(state);
+
 
                         break;
                     case 1:
@@ -122,11 +140,15 @@ public class EnemyKim : Enemy
                             collider.GetComponent<Rigidbody>().AddForce(direction.normalized * (fartPushRange - direction.magnitude) * fartPushMultiplier, ForceMode.VelocityChange);
                         }
 
-
+                        animator.SetBool("isWalking", false);
+                        animator.SetBool("isFarting", false);
+                        animator.SetBool("isAttacking", false);
+                        animator.SetBool("isSquatting", true);
                         // run next code after attack animation finishes (in animation state script or callback)
 
                         waitTime = fartCooldown;
                         state = States.Wait;
+                        ChangeAnimation(state);
 
 
                         break;
@@ -137,12 +159,16 @@ public class EnemyKim : Enemy
                             GameObject spawn = Instantiate(minion, transform.position, Quaternion.identity);
                         }
 
+                        animator.SetBool("isWalking", false);
+                        animator.SetBool("isFarting", false);
+                        animator.SetBool("isAttacking", false);
+                        animator.SetBool("isSquatting", true);
 
                         // run next code after attack animation finishes (in animation state script or callback)
 
                         waitTime = spawnCooldown;
                         state = States.Wait;
-                        
+                        ChangeAnimation(state);
                         
                         break;
                 }
@@ -155,8 +181,38 @@ public class EnemyKim : Enemy
             {
                 player = overlaps[0].gameObject;
                 state = States.Chase;
+                ChangeAnimation(state);
+
             }
         }
         
+    }
+
+
+
+    void ChangeAnimation(States s)
+    {
+        switch (s)
+        {
+            case States.Idle:
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isFarting", false);
+                animator.SetBool("isAttacking", false);
+                break;
+            case States.Chase:
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isFarting", false);
+                animator.SetBool("isAttacking", false);
+
+                break;
+            case States.Wait:
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isFarting", false);
+                animator.SetBool("isAttacking", false);
+
+                break;
+            default:
+                break;
+        }
     }
 }

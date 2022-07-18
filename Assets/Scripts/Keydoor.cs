@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Keydoor : MonoBehaviour
 {
@@ -46,18 +47,21 @@ public class Keydoor : MonoBehaviour
                     break;
                 case DoorColor.Blue:
                     GameObject.Find("GameManager").GetComponent<GameManager>().blueDoorOpen = true;
+                    Destroy(gameObject);
                     break;
                 case DoorColor.Green:
                     GameObject.Find("GameManager").GetComponent<GameManager>().greenDoorOpen = true;
                     break;
                 case DoorColor.Yellow:
                     GameObject.Find("GameManager").GetComponent<GameManager>().yellowDoorOpen = true;
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
                     break;
                 default:
                     break;
             }
 
-            Destroy(gameObject);
+            
         }
     }
 
