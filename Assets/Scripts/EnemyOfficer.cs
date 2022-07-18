@@ -34,6 +34,7 @@ public class EnemyOfficer : Enemy
     private GameObject bulletClone;
     int help = 0;
     private Animator animator;
+    public int damage;
 
     public void Start()
     {
@@ -79,7 +80,7 @@ public class EnemyOfficer : Enemy
                     {
                         if (help == 0)
                         {
-                            pl.GetComponent<PlayerController>().TakeDamage(10);
+                            pl.GetComponent<PlayerController>().TakeDamage(damage);
                             help = 1;
                         }
 
