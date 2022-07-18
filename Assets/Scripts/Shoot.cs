@@ -127,7 +127,11 @@ public class Shoot : MonoBehaviour
             if (hit.transform.TryGetComponent<Enemy>(out enemy) || ( hit.transform.parent != null && hit.transform.parent.transform.TryGetComponent<Enemy>(out enemy)))
             {
                 hitMaterial = new Material[hit.collider.gameObject.GetComponentInChildren<Renderer>().materials.Length];
-                bool isEnemyDead = hit.rigidbody.gameObject.GetComponentInParent<Enemy>().TakeDamage(damage);
+
+                bool isEnemyDead = enemy.TakeDamage(damage);
+
+
+
                 if (isEnemyDead)
                     currentAmmo = maxAmmo;
 
