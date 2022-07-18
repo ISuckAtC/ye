@@ -42,15 +42,17 @@ public class Keydoor : MonoBehaviour
 
             switch (color)
             {
+
                 case DoorColor.Red:
-                    GameObject.Find("GameManager").GetComponent<GameManager>().redDoorOpen = true;
+                    GameObject.Find("GameManagerSL").GetComponent<GameManagerSL>().redDoorOpen = true;
                     break;
                 case DoorColor.Blue:
                     GameObject.Find("GameManager").GetComponent<GameManager>().blueDoorOpen = true;
                     Destroy(gameObject);
                     break;
                 case DoorColor.Green:
-                    GameObject.Find("GameManager").GetComponent<GameManager>().greenDoorOpen = true;
+                    GameObject.Find("GameManagerSL").GetComponent<GameManagerSL>().greenDoorOpen = true;
+                    Destroy(gameObject);
                     break;
                 case DoorColor.Yellow:
                     GameObject.Find("GameManager").GetComponent<GameManager>().yellowDoorOpen = true;

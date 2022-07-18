@@ -9,6 +9,7 @@ TagManager:
   - WeaponRange
   - WeaponMelee
   - FPSCamera
+  - Plunger
   layers:
   - Default
   - TransparentFX
