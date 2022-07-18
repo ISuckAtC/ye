@@ -929,12 +929,13 @@ MonoBehaviour:
   inAttackRange: 0
   bullet: {fileID: 825033607283945470, guid: e329f47e5dc24c943bbe40247354c058, type: 3}
   bulletSpawnPoint: {fileID: 773907345119753654}
-  bulletSpeed: 30
+  bulletSpeed: 20
   bulletLifeTime: 5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
   ballRadius: 0.1
+  damage: 2
 --- !u!1 &4208634004426773336
 GameObject:
   m_ObjectHideFlags: 0

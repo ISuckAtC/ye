@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         if (!invincible)
         {
             c++;
-            gainHealthTimer = initialHealthTimer + c;
+            gainHealthTimer = Mathf.Min(initialHealthTimer + c, 8f);
             health -= damage;
             if (health <= 0)
             {
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
     public void GainHealth()
     {
-        health += 5;
+        health += 10;
         gainHealthTimer = initialHealthTimer;
         eyeVignetteMtrl.SetFloat("_Exponential", (100 - health) / 200);
 

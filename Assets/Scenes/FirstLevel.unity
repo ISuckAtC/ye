@@ -43042,7 +43042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282a05aec1c0fd940a18a2b0f08dbaa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 1000
   spawnOnDeath: {fileID: 4883785355302730305, guid: a97b914a874f0354da06c1f86574faf4, type: 3}
   invincible: 0
   waitTimeMin: 0
