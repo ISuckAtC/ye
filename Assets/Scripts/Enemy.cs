@@ -28,7 +28,8 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
-        Instantiate(spawnOnDeath, transform.position, transform.rotation);
+        if (spawnOnDeath) Instantiate(spawnOnDeath, transform.position, transform.rotation);
+        SoundController.sounds.PlaySound(SoundController.sounds.Death, transform.position);
         Destroy(gameObject);
     }
 }
