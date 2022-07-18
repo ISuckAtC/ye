@@ -32,26 +32,26 @@ public class EnemyShit : Enemy
 
     public EnemyKim.States state;
     private GameObject player;
-    public float sightRange;
     public float meleeRange;
     public int meleeDamage;
     public GameObject poopPuddle;
     public float meleeAttackCD;
-    public float puddleAttackCD;
-    public float puddleChancePerSecond;
-    private NavMeshAgent agent;
     public GameObject fakeShitter;
-    public float puddleChanceOnAttack;
+    public float puddleChanceOnAttack = 100f;
+    public float slamHitHeight;
+    public float slamHitRange;
+    public float meleeAoe;
 
+    private bool isRight;
 
 
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<MeshRenderer>();
+        animatoranimator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
-        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -82,25 +82,7 @@ public class EnemyShit : Enemy
 
     public IEnumerator PhaseToOne()
     {
-        phase = -1;
-        int secure = 0;
-        while (true)
-        {
-            fakeShitter.transform.position = Vector3.MoveTowards(fakeShitter.transform.position, phaseTwoSpawn.position, phaseTwoSpawnSpeed * Time.deltaTime);
-            yield return new WaitForEndOfFrame();
-            if (Vector3.Distance(fakeShitter.transform.position, phaseTwoSpawn.position) < 0.1f)
-            {
-                break;
-            }
-            if (secure++ > 1000)
-            {
-                break;
-            }
-        }
-        GetComponent<Collider>().enabled = true;
-        rigidbody.isKinematic = false;
-        renderer.enabled = true;
-        Destroy(fakeShitter);
+        yield return new WaitForEndOfFrame();
 
         phase = 1;
     }
@@ -154,85 +136,58 @@ public class EnemyShit : Enemy
 
     void PhaseTwo()
     {
-        if (state == EnemyKim.States.Wait) return;
-        if (state == EnemyKim.States.Attack) return;
 
 
 
 
-        if (state == EnemyKim.States.Chase)
+        if (Vector3.Distance(transform.position, player.transform.position) < meleeRange)
         {
-            if (Vector3.Distance(transform.position, player.transform.position) > sightRange)
-            {
-                agent.isStopped = true;
-                player = null;
-                state = EnemyKim.States.Idle;
-            }
-            else
-            {
-                agent.SetDestination(player.transform.position);
-                agent.isStopped = false;
-            }
+            if (state == EnemyKim.States.Attack) return;
 
-            float randPuddle = Random.Range(0f, 1f);
-            if (randPuddle < Time.deltaTime)
-            {
-                randPuddle = Random.Range(0f, 100f);
+            Vector3 pos = transform.position;
+            transform.LookAt(player.transform, Vector3.up);
+
+            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+
+            if (state == EnemyKim.States.Wait) return;
 
 
-                if (randPuddle < puddleChancePerSecond)
-                {
-                    /*
-                    // spawn puddle
+            state = EnemyKim.States.Wait;
 
-                    GameObject puddle = Instantiate(poopPuddle, transform.position, Quaternion.identity);
-                    puddle.transform.SetParent(antiClutter);
-                    state = EnemyKim.States.Attack;
-                    agent.isStopped = true;
 
-                    // code after finished animation
+            // CALL ATTACK ANIMATION HERE, MAKE SURE ANIMATION CALLS BACK TO AttackFinish()
 
-                    state = EnemyKim.States.Wait;
-                    waitTime = puddleAttackCD;
-                    */
-                }
-            }
+            isRight = Random.Range(0, 2) == 0;
 
-            if (player && Vector3.Distance(transform.position, player.transform.position) <= meleeRange)
-            {
-                state = EnemyKim.States.Attack;
-                agent.isStopped = true;
-                int rand = Random.Range(0, 1);
-                switch (rand)
-                {
-                    case 0:
-                        player.GetComponent<PlayerController>().TakeDamage(meleeDamage);
-
-                        state = EnemyKim.States.Attack;
-                        Debug.Log("aa");
-                        animatoranimator.SetBool("isRight", true);
-
-                        // run next code when attack hits
-
-                        float frand = Random.Range(0f, 100f);
-                        if (frand < puddleChanceOnAttack)
-                        {
-                            GameObject puddle = Instantiate(poopPuddle, transform.position, Quaternion.identity);
-                            puddle.transform.SetParent(antiClutter);
-                        }
-
-                        break;
-                }
-            }
+            animatoranimator.SetBool(isRight ? "isLeft" : "isRight", true);
         }
-        else
+    }
+
+    public void AttackStopMove()
+    {
+        state = EnemyKim.States.Attack;
+    }
+
+    public void AttackHit()
+    {
+        Vector3 hitPosition = transform.position + (transform.forward * slamHitRange);
+
+        hitPosition.y = slamHitHeight;
+
+        GameObject a = new GameObject("Slam");
+        a.transform.position = hitPosition;
+
+        Collider[] overlaps = Physics.OverlapSphere(hitPosition, meleeAoe, LayerMask.GetMask("Player"));
+        if (overlaps.Length > 0)
         {
-            Collider[] overlaps = Physics.OverlapSphere(transform.position, sightRange, LayerMask.GetMask("Player"));
-            if (overlaps.Length > 0)
-            {
-                player = overlaps[0].gameObject;
-                state = EnemyKim.States.Chase;
-            }
+            Debug.Log("hit " + overlaps[0].name);
+            player = overlaps[0].gameObject;
+            player.GetComponent<PlayerController>().TakeDamage(meleeDamage);
+        }
+
+        if (Random.Range(0f, 100f) < puddleChanceOnAttack)
+        {
+            Instantiate(poopPuddle, hitPosition, Quaternion.identity);
         }
     }
 
@@ -242,5 +197,6 @@ public class EnemyShit : Enemy
         waitTime = meleeAttackCD;
         state = EnemyKim.States.Wait;
         animatoranimator.SetBool("isRight", false);
+        animatoranimator.SetBool("isLeft", false);
     }
 }

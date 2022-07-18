@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!invincible)
         {
+            Debug.Log("Player took " + damage + " damage");
             c++;
             gainHealthTimer = Mathf.Min(initialHealthTimer + c, 8f);
             health -= damage;
