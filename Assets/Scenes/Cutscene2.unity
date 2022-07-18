@@ -894,7 +894,7 @@ MonoBehaviour:
   - 7
   i: 0
   isLineOnScreen: 0
-  nextScene: 3
+  nextScene: 4
   dialogArea: {fileID: 710456488}
   personTalkingArea: {fileID: 182681526}
 --- !u!4 &185527693
