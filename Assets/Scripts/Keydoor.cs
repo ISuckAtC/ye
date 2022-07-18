@@ -38,6 +38,25 @@ public class Keydoor : MonoBehaviour
         if (GameObject.Find("Player").GetComponent<PlayerController>().keys.Contains(color))
         {
             GameObject.Find("Player").GetComponent<PlayerController>().keys.Remove(color);
+
+            switch (color)
+            {
+                case DoorColor.Red:
+                    GameObject.Find("GameManager").GetComponent<GameManager>().redDoorOpen = true;
+                    break;
+                case DoorColor.Blue:
+                    GameObject.Find("GameManager").GetComponent<GameManager>().blueDoorOpen = true;
+                    break;
+                case DoorColor.Green:
+                    GameObject.Find("GameManager").GetComponent<GameManager>().greenDoorOpen = true;
+                    break;
+                case DoorColor.Yellow:
+                    GameObject.Find("GameManager").GetComponent<GameManager>().yellowDoorOpen = true;
+                    break;
+                default:
+                    break;
+            }
+
             Destroy(gameObject);
         }
     }
