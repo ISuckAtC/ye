@@ -105,19 +105,13 @@ public class EnemyKim : Enemy
                         animator.SetBool("isSquatting", false);
                         animator.SetBool("isAttacking", true);
 
-                        // run next code after attack animation finishes (in animation state script or callback)
-
-
                         //if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("YourAnimationName"))
                         //{
                         //    // Avoid any reload.
                         //}
 
-                        waitTime = clapCooldown;
-                        state = States.Wait;
-                        ChangeAnimation(state);
 
-
+                        
                         break;
                     case 1:
                         Debug.Log("Kim brapp");
@@ -144,11 +138,6 @@ public class EnemyKim : Enemy
                         animator.SetBool("isFarting", false);
                         animator.SetBool("isAttacking", false);
                         animator.SetBool("isSquatting", true);
-                        // run next code after attack animation finishes (in animation state script or callback)
-
-                        waitTime = fartCooldown;
-                        state = States.Wait;
-                        ChangeAnimation(state);
 
 
                         break;
@@ -163,12 +152,6 @@ public class EnemyKim : Enemy
                         animator.SetBool("isFarting", false);
                         animator.SetBool("isAttacking", false);
                         animator.SetBool("isSquatting", true);
-
-                        // run next code after attack animation finishes (in animation state script or callback)
-
-                        waitTime = spawnCooldown;
-                        state = States.Wait;
-                        ChangeAnimation(state);
                         
                         break;
                 }
@@ -185,7 +168,7 @@ public class EnemyKim : Enemy
 
             }
         }
-        
+
     }
 
 
@@ -215,4 +198,26 @@ public class EnemyKim : Enemy
                 break;
         }
     }
+    public void AttackAnimationFinish()
+    {
+        waitTime = clapCooldown;
+        state = States.Wait;
+        ChangeAnimation(state);
+    }
+
+    public void FartAnimationFinish()
+    {
+        waitTime = fartCooldown;
+        state = States.Wait;
+        ChangeAnimation(state);
+    }
+
+    public void SpawnAnimationFinish()
+    {
+        waitTime = spawnCooldown;
+        state = States.Wait;
+        ChangeAnimation(state);
+    }
+
+
 }
