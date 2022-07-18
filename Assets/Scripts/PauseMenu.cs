@@ -32,7 +32,6 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
-
     public void Resume()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -80,6 +79,21 @@ public class PauseMenu : MonoBehaviour
     public void Slider()
     {
         pC.mouseSensitivity = mouseSensitivitySlider.value;
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        Cursor.lockState = CursorLockMode.Locked;
+
+        pauseMenuUI.SetActive(false);
+
+        Time.timeScale = 1f;
+
+        gameIsPaused = false;
+
+        isInOptionsMenu = false;
     }
 
     public void QuitGame()
