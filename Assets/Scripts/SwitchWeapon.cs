@@ -16,6 +16,9 @@ public class SwitchWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (selectedWeapon == 1 && pC.weaponRange.GetComponent<Shoot>().isReloading) return;
+
+
         int previousSelectedWeapon = selectedWeapon;
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)

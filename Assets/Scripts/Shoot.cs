@@ -7,7 +7,7 @@ public class Shoot : MonoBehaviour
     public int damage = 10;
     public int maxAmmo = 10;
     private int currentAmmo;
-    private bool isReloading = false;
+    public bool isReloading = false;
     private float nextTimeToFire = 0f;
     private Camera cam;
     public ParticleSystem muzzleFlash;
@@ -39,6 +39,7 @@ public class Shoot : MonoBehaviour
 
         if (currentAmmo <= 0)
         {
+            isReloading = true;
             StartCoroutine(Reload());
 
             return;
@@ -104,6 +105,7 @@ public class Shoot : MonoBehaviour
     void Fire()
     {
         muzzleFlash.Play();
+        SoundController.sounds.PlaySound(SoundController.sounds.GunFire, transform.position);
 
         currentAmmo--;
 
@@ -158,7 +160,6 @@ public class Shoot : MonoBehaviour
 
     IEnumerator Reload()
     {
-        isReloading = true;
 
         Debug.Log("Reloading...");
 
@@ -172,5 +173,6 @@ public class Shoot : MonoBehaviour
 
         currentAmmo = maxAmmo;
         isReloading = false;
+        Debug.Log("Reload finish");
     }
 }
