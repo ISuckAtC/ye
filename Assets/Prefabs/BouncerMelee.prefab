@@ -1120,7 +1120,7 @@ MonoBehaviour:
   health: 100
   spawnOnDeath: {fileID: 0}
   invincible: 0
-  speed: 5
+  speed: 3
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
@@ -1130,11 +1130,11 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 1
   timeBetweenAttacks: 2
-  sightRange: 15
+  sightRange: 10
   attackRange: 1
   inSightRange: 0
   inAttackRange: 0
-  punchDamage: 5
+  punchDamage: 1
   dashSpeed: 2
   dashTime: 0.5
 --- !u!195 &4999279398478716764
