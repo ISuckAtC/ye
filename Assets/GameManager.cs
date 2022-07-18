@@ -32,10 +32,17 @@ public class GameManager : MonoBehaviour
     float supremeTimer = 0;
     float corridorMixTimer = 0;
 
+    public bool blueDoorOpen = false;
+    public bool redDoorOpen = false;
+    public bool greenDoorOpen = false;
+    public bool yellowDoorOpen = false;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        stages = Stages.RangedStage;
+        stages = Stages.SupremeJudgeStage;
     }
 
     // Update is called once per frame
@@ -221,47 +228,53 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case Stages.Corridor:
-                if (!corridorActive)
+
+                if (blueDoorOpen)
                 {
-                    if (corridorMixTimer < 5f)
+                    if (!corridorActive)
                     {
-                        corridorMixTimer += Time.deltaTime;
+                        if (corridorMixTimer < 5f)
+                        {
+                            corridorMixTimer += Time.deltaTime;
+                        }
+                        else
+                        {
+                            foreach (Transform t in corridorMixGO.transform)
+                            {
+                                if (t.name.Contains("Officer"))
+                                {
+                                    t.GetComponent<EnemyOfficer>().enabled = true;
+                                    t.GetComponent<Enemy>().invincible = false;
+                                }
+
+                                if (t.name.Contains("Bouncer"))
+                                {
+                                    t.GetComponent<EnemyBouncer>().enabled = true;
+                                    t.GetComponent<Enemy>().invincible = false;
+                                }
+
+                                if (t.name.Contains("Grabber"))
+                                {
+                                    t.GetComponent<EnemyHugger>().enabled = true;
+                                    t.GetComponent<Enemy>().invincible = false;
+                                }
+
+                                corridorActive = true;
+                            }
+                        }
                     }
                     else
                     {
-                        foreach (Transform t in corridorMixGO.transform)
+                        if (corridorMixGO.transform.childCount == 0)
                         {
-                            if (t.name.Contains("Officer"))
-                            {
-                                t.GetComponent<EnemyOfficer>().enabled = true;
-                                t.GetComponent<Enemy>().invincible = false;
-                            }
 
-                            if (t.name.Contains("Bouncer"))
-                            {
-                                t.GetComponent<EnemyBouncer>().enabled = true;
-                                t.GetComponent<Enemy>().invincible = false;
-                            }
-
-                            if (t.name.Contains("Grabber"))
-                            {
-                                t.GetComponent<EnemyHugger>().enabled = true;
-                                t.GetComponent<Enemy>().invincible = false;
-                            }
-
-                            corridorActive = true;
+                            //What happens when everything in the corridor gets killed
+                            Debug.Log("a");
                         }
                     }
                 }
-                else
-                {
-                    if (corridorMixGO.transform.childCount == 0)
-                    {
 
-                        //What happens when everything in the corridor gets killed
-                        Debug.Log("a");
-                    }
-                }
+                
                 break;
             default:
                 break;
