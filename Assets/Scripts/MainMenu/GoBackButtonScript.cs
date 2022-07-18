@@ -5,12 +5,10 @@ using UnityEngine;
 public class GoBackButtonScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Canvas mainMenu;
-    public Canvas settingsMenu;
+    public GameObject creditsObjects;
 
     public void BackToMainMenu()
     {
-        settingsMenu.gameObject.SetActive(false);
-        mainMenu.gameObject.SetActive(true);
+        creditsObjects.SetActive(!creditsObjects.activeSelf);
     }
 }
