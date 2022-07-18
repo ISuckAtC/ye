@@ -245,6 +245,8 @@ public class EnemyKim : Enemy
 
     public void FartNow()
     {
+
+        SoundController.sounds.PlaySound(SoundController.sounds.Fart, transform.position);
         Vector3 directionToPlayer = player.transform.position - transform.position;
         directionToPlayer = directionToPlayer.normalized;
 
@@ -268,6 +270,7 @@ public class EnemyKim : Enemy
 
     public void SpawnMinionsNow()
     {
+        SoundController.sounds.PlaySound(SoundController.sounds.Fart, transform.position);
         for (int i = 0; i < minionSpawnCount; i++)
         {
             GameObject spawn = Instantiate(minion, transform.position, Quaternion.identity);
