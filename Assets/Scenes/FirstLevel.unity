@@ -36549,12 +36549,12 @@ MonoBehaviour:
   LevelComplete: {fileID: 0}
   LevelStart: {fileID: 0}
   LevelFail: {fileID: 0}
-  Fart: {fileID: 0}
+  Fart: {fileID: 8300000, guid: a043f48d89a83ac449f8b5dfd4cef975, type: 3}
   Tackle: {fileID: 0}
   ShootGround: {fileID: 0}
   ShootEnemy: {fileID: 0}
-  Raid: {fileID: 0}
-  Slam: {fileID: 0}
+  Raid: {fileID: 8300000, guid: 1156a352b8b332d42bcac006d1bf2b79, type: 3}
+  Slam: {fileID: 8300000, guid: 1156a352b8b332d42bcac006d1bf2b79, type: 3}
 --- !u!1 &1418563751
 GameObject:
   m_ObjectHideFlags: 0
@@ -40437,7 +40437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4291953506882247441, guid: a645722b35cd9694ebaa5984e0e3695d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.33
+      value: 8.91
       objectReference: {fileID: 0}
     - target: {fileID: 4291953506882247441, guid: a645722b35cd9694ebaa5984e0e3695d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -40445,7 +40445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4291953506882247441, guid: a645722b35cd9694ebaa5984e0e3695d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.45
+      value: 1.53
       objectReference: {fileID: 0}
     - target: {fileID: 4291953506882247441, guid: a645722b35cd9694ebaa5984e0e3695d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -43050,7 +43050,7 @@ MonoBehaviour:
   speed: 10
   sightRange: 25
   attackRange: 5
-  minion: {fileID: 3059015034792047698, guid: da75f422da67dae47b59b25ce12c0626, type: 3}
+  minion: {fileID: 5305359046226421189, guid: de618c0a885fc8c4e894279c1e675d12, type: 3}
   fartProjectile: {fileID: 3101452610761573780, guid: 64d68939bf6307242bc8ae4e68735b32, type: 3}
   state: 0
   clapDamage: 5
@@ -43060,7 +43060,7 @@ MonoBehaviour:
   spawnCooldown: 5
   fartSprayRadius: 60
   fartProjectileCount: 100
-  fartProjectileLifetime: 10
+  fartProjectileLifetime: 8
   fartProjectileSpeedMin: 2
   fartProjectileSpeedMax: 5
   fartPushRange: 10

@@ -136,7 +136,7 @@ public class EnemyKim : Enemy
                         //}
 
                         //startAttackT = true;
-                        
+
                         break;
                     case 1:
                         Debug.Log("Kim brapp");
@@ -153,6 +153,8 @@ public class EnemyKim : Enemy
                             fart.GetComponent<Rigidbody>().AddForce(fartDirection * Random.Range(fartProjectileSpeedMin, fartProjectileSpeedMax), ForceMode.VelocityChange);
                             Destroy(fart, fartProjectileLifetime);
                         }
+                        player.GetComponent<PlayerController>().TakeDamage(5);
+
 
                         Collider[] colliders = Physics.OverlapSphere(transform.position, fartPushRange, LayerMask.GetMask("Fart"));
                         foreach (Collider collider in colliders)
@@ -167,7 +169,7 @@ public class EnemyKim : Enemy
                         animator.SetBool("isAttacking", false);
                         animator.SetBool("isFarting", true);
 
-                        
+
 
                         //fartAttackT = true;
 
@@ -175,7 +177,7 @@ public class EnemyKim : Enemy
                         break;
                     case 2:
                         Debug.Log("Kim orbiter raid");
-                        
+
                         SoundController.sounds.PlaySound(SoundController.sounds.Raid, transform.position);
                         for (int i = 0; i < minionSpawnCount; i++)
                         {
@@ -311,6 +313,4 @@ public class EnemyKim : Enemy
         state = States.Wait;
         ChangeAnimation(state);
     }
-
-
 }

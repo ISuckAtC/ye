@@ -71,6 +71,8 @@ public class PlayerController : MonoBehaviour
     public void GainHealth()
     {
         health += 10;
+        if (health > 100)
+            health = 100;
         gainHealthTimer = initialHealthTimer;
         eyeVignetteMtrl.SetFloat("_Exponential", (100 - health) / 200);
 
