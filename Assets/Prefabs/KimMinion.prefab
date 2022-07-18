@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3059015034792047699}
   - component: {fileID: 3059015034792047700}
   - component: {fileID: -8513664538748617599}
+  - component: {fileID: -4898012079468632765}
   m_Layer: 3
   m_Name: KimMinion
   m_TagString: Untagged
@@ -130,6 +131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  spawnOnDeath: {fileID: 931100914699356905, guid: 0aec1671f241cc744af3d4eec684ef79, type: 3}
+  invincible: 0
   speed: 5
   groundLayer:
     serializedVersion: 2
@@ -144,6 +147,7 @@ MonoBehaviour:
   attackRange: 2
   inSightRange: 0
   inAttackRange: 0
+  punchDamage: 0
   dashSpeed: 20
   dashTime: 0.25
 --- !u!195 &-8513664538748617599
@@ -168,3 +172,23 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &-4898012079468632765
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059015034792047698}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e5a9de960092dd943bed0e8f1bec2584, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
