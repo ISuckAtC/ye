@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 3847699026398401398}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: FPSCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -502,6 +502,7 @@ MonoBehaviour:
   cameraBopHeight: 0.03
   keys: 
   eyeVignetteMtrl: {fileID: 2100000, guid: b482e7c1f96c5ed4390682b984b25d51, type: 2}
+  audioController: {fileID: 0}
 --- !u!114 &4291953506882247424
 MonoBehaviour:
   m_ObjectHideFlags: 0
