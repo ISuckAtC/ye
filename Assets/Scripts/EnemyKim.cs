@@ -139,29 +139,13 @@ public class EnemyKim : Enemy
                         break;
                     case 1:
                         Debug.Log("Kim brapp");
-                        Vector3 directionToPlayer = player.transform.position - transform.position;
-                        directionToPlayer = directionToPlayer.normalized;
 
-                        for (int i = 0; i < fartProjectileCount; i++)
-                        {
-                            Vector3 fartDirection = Quaternion.Euler(Random.Range(-fartSprayRadius, fartSprayRadius), Random.Range(-fartSprayRadius, fartSprayRadius), 0) * directionToPlayer;
-                            GameObject fart = Instantiate(fartProjectile, transform.position, Quaternion.identity);
-                            fart.GetComponent<Rigidbody>().AddForce(fartDirection * Random.Range(fartProjectileSpeedMin, fartProjectileSpeedMax), ForceMode.VelocityChange);
-                            Destroy(fart, fartProjectileLifetime);
-                        }
-
-                        Collider[] colliders = Physics.OverlapSphere(transform.position, fartPushRange, LayerMask.GetMask("Fart"));
-                        foreach (Collider collider in colliders)
-                        {
-                            Vector3 direction = collider.transform.position - transform.position;
-                            direction += new Vector3(0, fartPushVerticalBias, 0);
-                            collider.GetComponent<Rigidbody>().AddForce(direction.normalized * (fartPushRange - direction.magnitude) * fartPushMultiplier, ForceMode.VelocityChange);
-                        }
+                        //FartNow();
 
                         animator.SetBool("isWalking", false);
-                        animator.SetBool("isFarting", false);
+                        animator.SetBool("isSquatting", false);
                         animator.SetBool("isAttacking", false);
-                        animator.SetBool("isSquatting", true);
+                        animator.SetBool("isFarting", true);
 
                         
 
@@ -171,10 +155,7 @@ public class EnemyKim : Enemy
                         break;
                     case 2:
                         Debug.Log("Kim orbiter raid");
-                        for (int i = 0; i < minionSpawnCount; i++)
-                        {
-                            GameObject spawn = Instantiate(minion, transform.position, Quaternion.identity);
-                        }
+                        
 
                         animator.SetBool("isWalking", false);
                         animator.SetBool("isFarting", false);
@@ -231,6 +212,38 @@ public class EnemyKim : Enemy
                 break;
             default:
                 break;
+        }
+    }
+
+
+    public void FartNow()
+    {
+        Vector3 directionToPlayer = player.transform.position - transform.position;
+        directionToPlayer = directionToPlayer.normalized;
+
+        for (int i = 0; i < fartProjectileCount; i++)
+        {
+            Vector3 fartDirection = Quaternion.Euler(Random.Range(-fartSprayRadius, fartSprayRadius), Random.Range(-fartSprayRadius, fartSprayRadius), 0) * directionToPlayer;
+            GameObject fart = Instantiate(fartProjectile, transform.position, Quaternion.identity);
+            fart.GetComponent<Rigidbody>().AddForce(fartDirection * Random.Range(fartProjectileSpeedMin, fartProjectileSpeedMax), ForceMode.VelocityChange);
+            Destroy(fart, fartProjectileLifetime);
+        }
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, fartPushRange, LayerMask.GetMask("Fart"));
+        foreach (Collider collider in colliders)
+        {
+            Vector3 direction = collider.transform.position - transform.position;
+            direction += new Vector3(0, fartPushVerticalBias, 0);
+            collider.GetComponent<Rigidbody>().AddForce(direction.normalized * (fartPushRange - direction.magnitude) * fartPushMultiplier, ForceMode.VelocityChange);
+        }
+    }
+
+
+    public void SpawnMinionsNow()
+    {
+        for (int i = 0; i < minionSpawnCount; i++)
+        {
+            GameObject spawn = Instantiate(minion, transform.position, Quaternion.identity);
         }
     }
 
