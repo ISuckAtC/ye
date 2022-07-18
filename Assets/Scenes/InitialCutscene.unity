@@ -396,15 +396,16 @@ MonoBehaviour:
   - She took it all... She took everything...
   - My money, my kids...
   - Even my dignity detective. Do you know how that feels?
-  - '*grunts*'
-  - Mr <Insert Name>, I dont believe your actions were ones of a sane individual.
+  - What dignity?
+  - Mr Thoroughbred, I dont believe your actions were ones of a sane individual.
   - Such a violent act. Only a truly disturbed mind could commit something of the
     sort.
   - It was all rigged from the beggining detective. That's the truth. That trial
     was a joke.
   - A travesty of justice.
   - '*chuckles*'
-  - A farce if you will.
+  - A facade if you will.
+  - You know, those aren't really the same thing.
   - The final humiliation of a man whose reputation was dragged through the dirt
     by the media.
   - I wouldn't call it that.
@@ -424,17 +425,18 @@ MonoBehaviour:
   - '[JESSE ANIME - DETECTIVE]'
   - '[JESSE]'
   - '[JESSE]'
-  - '[FAMOUS RAPPER]'
-  - '[FAMOUS RAPPER]'
-  - '[FAMOUS RAPPER]'
+  - '[MR THOROUGHBRED - FAMOUS RAPPER]'
+  - '[MR THOROUGHBRED]'
+  - '[MR THOROUGHBRED]'
   - '[JESSE]'
   - '[JESSE]'
   - '[JESSE]'
-  - '[FAMOUS RAPPER]'
-  - '[FAMOUS RAPPER]'
-  - '[FAMOUS RAPPER]'
-  - '[FAMOUS RAPPER]'
-  - '[FAMOUS RAPPER]'
+  - '[MR THOROUGHBRED]'
+  - '[MR THOROUGHBRED]'
+  - '[MR THOROUGHBRED]'
+  - '[MR THOROUGHBRED]'
+  - '[JESSE]'
+  - '[MR THOROUGHBRED]'
   - '[JESSE]'
   - '[JESSE]'
   - '[JESSE]'
@@ -453,13 +455,14 @@ MonoBehaviour:
   - 5
   - 2
   - 5
-  - 2
+  - 3
   - 7
   - 7
   - 7
   - 2
   - 2
-  - 2
+  - 3
+  - 5
   - 7
   - 2
   - 5
@@ -1566,7 +1569,7 @@ MonoBehaviour:
     m_Hold: 0
     m_Blend:
       m_Style: 6
-      m_Time: 6
+      m_Time: 8
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []
