@@ -38,6 +38,11 @@ public class EnemyKim : Enemy
     public float fartPushVerticalBias;
 
     public float minionSpawnCount;
+
+    bool startAttackT;
+    bool fartAttackT;
+    bool spawnAnimationT;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +66,25 @@ public class EnemyKim : Enemy
                 waitTime -= Time.deltaTime;
             }
         }
+
+
+        //if (startAttackT && animator.GetCurrentAnimatorStateInfo(0).IsName("ButtAttack") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+        //{
+        //    AttackAnimationFinish();
+        //    startAttackT = false;
+        //}
+        //
+        //if (fartAttackT && animator.GetCurrentAnimatorStateInfo(0).IsName("Fart") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+        //{
+        //    FartAnimationFinish();
+        //    fartAttackT = false;
+        //}
+        //
+        //if (spawnAnimationT && animator.GetCurrentAnimatorStateInfo(0).IsName("Squat") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+        //{
+        //    SpawnAnimationFinish();
+        //    spawnAnimationT = false;
+        //}
 
 
     }
@@ -110,7 +134,7 @@ public class EnemyKim : Enemy
                         //    // Avoid any reload.
                         //}
 
-
+                        //startAttackT = true;
                         
                         break;
                     case 1:
@@ -139,6 +163,10 @@ public class EnemyKim : Enemy
                         animator.SetBool("isAttacking", false);
                         animator.SetBool("isSquatting", true);
 
+                        
+
+                        //fartAttackT = true;
+
 
                         break;
                     case 2:
@@ -152,7 +180,9 @@ public class EnemyKim : Enemy
                         animator.SetBool("isFarting", false);
                         animator.SetBool("isAttacking", false);
                         animator.SetBool("isSquatting", true);
-                        
+
+                        //spawnAnimationT = true;
+
                         break;
                 }
             }
@@ -181,25 +211,47 @@ public class EnemyKim : Enemy
                 animator.SetBool("isWalking", false);
                 animator.SetBool("isFarting", false);
                 animator.SetBool("isAttacking", false);
+                animator.SetBool("isSquatting", false);
+
                 break;
             case States.Chase:
-                animator.SetBool("isWalking", true);
                 animator.SetBool("isFarting", false);
                 animator.SetBool("isAttacking", false);
+                animator.SetBool("isSquatting", false);
+                animator.SetBool("isWalking", true);
 
                 break;
             case States.Wait:
                 animator.SetBool("isWalking", false);
                 animator.SetBool("isFarting", false);
                 animator.SetBool("isAttacking", false);
+                animator.SetBool("isSquatting", false);
+
 
                 break;
             default:
                 break;
         }
     }
+
+    public void ReceiveSquatEvent()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fart"))
+        {
+            Debug.Log("farted");
+            FartAnimationFinish();
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Squat"))
+        {
+            Debug.Log("squated");
+            SpawnAnimationFinish();
+        }
+    }
+
     public void AttackAnimationFinish()
     {
+        Debug.Log("attack animation ended");
         waitTime = clapCooldown;
         state = States.Wait;
         ChangeAnimation(state);
@@ -207,6 +259,8 @@ public class EnemyKim : Enemy
 
     public void FartAnimationFinish()
     {
+
+        Debug.Log("fart animation ended");
         waitTime = fartCooldown;
         state = States.Wait;
         ChangeAnimation(state);
@@ -214,6 +268,7 @@ public class EnemyKim : Enemy
 
     public void SpawnAnimationFinish()
     {
+        Debug.Log("spawn animation ended");
         waitTime = spawnCooldown;
         state = States.Wait;
         ChangeAnimation(state);
