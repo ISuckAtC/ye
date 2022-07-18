@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1077997592700471105}
   - component: {fileID: 1077997592700471122}
   - component: {fileID: 1077997592700471123}
+  - component: {fileID: 4549046698434995899}
   m_Layer: 6
   m_Name: PlayerOld2
   m_TagString: Untagged
@@ -143,7 +144,9 @@ MonoBehaviour:
   cameraBopSpeed: 10
   cameraBopLength: 0.1
   cameraBopHeight: 0.03
-  eyeVignetteMtrl: {fileID: 0}
+  keys: 
+  eyeVignetteMtrl: {fileID: 2100000, guid: b482e7c1f96c5ed4390682b984b25d51, type: 2}
+  audioController: {fileID: 0}
 --- !u!114 &1077997592700471123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +160,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedWeapon: 1
+--- !u!114 &4549046698434995899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077997592700471118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3331b058efab63489a3e631ec6fe482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GunFire: {fileID: 8300000, guid: 6c634425eb92d0f44b3e27a16b376ad7, type: 3}
+  Hurt: {fileID: 0}
+  Death: {fileID: 8300000, guid: 91f93b7e6aede784c96288c707d26726, type: 3}
+  LevelComplete: {fileID: 0}
+  LevelStart: {fileID: 0}
+  LevelFail: {fileID: 0}
+  Fart: {fileID: 0}
+  Tackle: {fileID: 0}
+  ShootGround: {fileID: 0}
+  ShootEnemy: {fileID: 0}
 --- !u!1 &1077997592875391950
 GameObject:
   m_ObjectHideFlags: 0
