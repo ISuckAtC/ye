@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 312118527828742599}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: model (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3958979299715837576}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 875081612348481695}
   - component: {fileID: 2662688732072892885}
   - component: {fileID: 1573585214129634625}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 2910804426692474104}
   - component: {fileID: 584327316729751970}
   - component: {fileID: 759637324912969276}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plunger
   m_TagString: WeaponMelee
   m_Icon: {fileID: 0}

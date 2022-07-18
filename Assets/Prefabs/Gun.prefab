@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5411431185625088626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8967196503915964127}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mag_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7051036890149431473}
   - component: {fileID: 7744827506075294354}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: retopo.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5625450110448649668}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: trigger_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3848994801967236444}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: release
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4484008245239958594}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130453007467579281}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: release_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 4794839294199504082}
   - component: {fileID: 4947436413627523081}
   - component: {fileID: 6963780087402210481}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun
   m_TagString: WeaponRange
   m_Icon: {fileID: 0}
@@ -334,10 +334,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 100
-  dmg: 10
   impactForce: 1
   fireRate: 15
   reloadTime: 1
+  damage: 10
   maxAmmo: 20
   muzzleFlash: {fileID: 5678771110795306253}
   impactEffectEnemy: {fileID: 931100914699356905, guid: 4bf651d485c973045934a753a79a7f4a, type: 3}
@@ -401,7 +401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2472679053683353940}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bolt_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5678771110398247949}
   - component: {fileID: 5678771110398247948}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 5678771110795306255}
   - component: {fileID: 5678771110795306253}
   - component: {fileID: 5678771110795306254}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5396,7 +5396,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 464476249485648933}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5428,7 +5428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7000826235616305413}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5460,7 +5460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4618465429930776221}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
