@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private bool skipFirstFrame = true;
 
-    private float mouseSensitivity;
+    public float mouseSensitivity;
 
     private Vector3 meleeRotation, meleePosition, rangeRotation, rangePosition;
 
@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
 
     public GameObject audioController;
     private GameObject camera;
-
 
     public void TakeDamage(int damage)
     {
