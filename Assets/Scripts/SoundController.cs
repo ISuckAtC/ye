@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundController : MonoBehaviour
 {
     public static SoundController sounds;
-    public AudioClip GunFire, Hurt, Death, LevelComplete, LevelStart, LevelFail, Fart, Tackle, ShootGround, ShootEnemy;
+    public AudioClip GunFire, Hurt, Death, LevelComplete, LevelStart, LevelFail, Fart, Tackle, ShootGround, ShootEnemy, Raid, Slam;
     // Start is called before the first frame update
 
     void Awake()

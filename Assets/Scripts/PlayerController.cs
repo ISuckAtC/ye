@@ -57,7 +57,11 @@ public class PlayerController : MonoBehaviour
                 speed = 0;
                 eyesApperture = (100 - health) / 200;
                 camera.SetActive(false);
-
+                SoundController.sounds.PlaySound(SoundController.sounds.Death, transform.position);
+            }
+            else
+            {
+                SoundController.sounds.PlaySound(SoundController.sounds.Hurt, transform.position);
             }
             eyeVignetteMtrl.SetFloat("_Exponential", (100 - health) / 200);
         }
