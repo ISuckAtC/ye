@@ -96686,6 +96686,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1462927626272264637, guid: 031ecdd4540aa1f42992b0239838bd5e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1462927626272264638, guid: 031ecdd4540aa1f42992b0239838bd5e, type: 3}
       propertyPath: LightsModule.light
       value: 
